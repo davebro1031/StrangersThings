@@ -82,10 +82,12 @@ a{
   display: block;
   margin: 10% auto;
   width: max-content;
+  /* font-size: 1.3em; */
   /* border: 1px solid black */
 }
 
 #login-page-form, #new-user-form{
+  width: 375px;
   display:flex;
   flex-direction: column;
 }
@@ -94,6 +96,8 @@ a{
   margin: 0.3em;
 }
 
-.text-center{
-  text-align: center;
+.input-error{
+  font-size: 0.7em;
+  color: red;
+  /* display:none; */
 }

@@ -39,17 +39,17 @@ export default function LoginPage(){
     return(
     
     <div id="login-page">
-        <h3 className="text-center">Login to Stranger's Things</h3>
+        <h2>Login to Stranger's Things</h2>
         <form id="login-page-form" onSubmit={(event)=>loginUser(event)}>
 
             <div>
                 <input className="login-input" type="text" id="username" name = "username" placeholder="username" value ={username} onChange={(event)=>setUsername(event.target.value)} />
-                <div>The username you entered isn't connected to an account.</div>
+                <div className="input-error">The username you entered isn't connected to an account.</div>
             </div>
 
             <div>
                 <input className="login-input" type="password" id="password" name="password" placeholder="password" value ={password} onChange={(event)=>setPassword(event.target.value)} />
-                <div>The password you've entered is incorrect.</div>
+                <div className="input-error">The password you've entered is incorrect.</div>
             </div>
 
             <input id = "login-button" type="submit" value="Log In" />

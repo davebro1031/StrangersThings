@@ -34,15 +34,29 @@ export default function NewUser(){
 
     return (
         <div id="new-user-page">
-            <h3 className="text-center">Create an Account</h3>
+            <h2>Create an Account</h2>
             
             <form id="new-user-form" onSubmit={(event)=>loginUser(event)}>
         
-                <input type="text" id="newUsername" name = "newUsername" placeholder="username" value ={newUsername} onChange={(event)=>setNewUsername(event.target.value)} />
+                <div>
+                    <input type="text" id="newUsername" name = "newUsername" placeholder="username" value ={newUsername} onChange={(event)=>setNewUsername(event.target.value)} />
+                    <div className="input-error">not available</div>
+                </div>
 
-                <input type="password" id="newPassword" name="newPassword" placeholder="password" value ={newPassword} onChange={(event)=>setNewPassword(event.target.value)} />
+                <div>
+                    <input type="password" id="newPassword" name="newPassword" placeholder="password" value ={newPassword} onChange={(event)=>setNewPassword(event.target.value)} />
+                    <div>
+                        <div className="input-error">must contain at least 4 characters</div>
+                        <div className="input-error">must contain at least one uppercase letter</div>
+                        <div className="input-error">must contain at least one lowercase letter</div>
+                        <div className="input-error">must contain at least one special character (!"#$%&'()*+,-./:;=?@[\]^_`|~)</div>
+                    </div>
+                </div>
 
-                <input type="password" id="passwordConfirm" name="passwordConfirm" placeholder="confirm password" value ={passwordConfirm} onChange={(event)=>setPasswordConfirm(event.target.value)} />
+                <div>
+                    <input type="password" id="passwordConfirm" name="passwordConfirm" placeholder="confirm password" value ={passwordConfirm} onChange={(event)=>setPasswordConfirm(event.target.value)} />
+                    <div className="input-error">passwords must match</div>
+                </div>
 
                 <input type="submit" value="Register" id="register-user" />
             </form>
