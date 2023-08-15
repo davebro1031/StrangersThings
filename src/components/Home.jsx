@@ -1,18 +1,18 @@
-import React from "react";
-import Davescomponent from "./Davescomponent";
+import React, { useEffect } from "react";
 
 function Home() {
-  return (
+  const fetchPosts = async () => {
+    const response = await fetch(
+      `${import.meta.env.VITE_STRANGERS_THINGS_BASE_API}/posts`
+    );
+    const d = await response.json();
+    console.log(d);
+  };
+  useEffect(() => {
+    fetchPosts();
 
-    <>
-      <p>Home</p>
-      <div>Fred's Edits</div>
-      <Davescomponent />
-      <div>This is a conflict</div>
-     <p>woweee make a conflict why dont you</p>
-    </>
-
-  );
+    return () => {};
+  }, []);
 }
 
 export default Home;
