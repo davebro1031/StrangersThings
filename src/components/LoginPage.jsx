@@ -39,6 +39,7 @@ export default function LoginPage(){
     return(
     
     <div id="login-page">
+        <h3>Login to Stranger's Things</h3>
         <form id="login-page-form" onSubmit={(event)=>loginUser(event)}>
 
             <div>
