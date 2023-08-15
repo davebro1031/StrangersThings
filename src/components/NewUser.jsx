@@ -1,7 +1,6 @@
 import {useState} from "react"
 
-const COHORT_NAME = '2305-FTB-MT-WEB-PT'
-const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
+const BASE_URL = `${import.meta.env.VITE_STRANGERS_THINGS_BASE_API}`
 
 export default function NewUser(){
     

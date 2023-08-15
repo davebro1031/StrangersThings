@@ -1,8 +1,7 @@
 import {useState} from "react"
+import {Link} from "react-router-dom"
 
-const COHORT_NAME = '2305-FTB-MT-WEB-PT'
-const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
-
+const BASE_URL = `${import.meta.env.VITE_STRANGERS_THINGS_BASE_API}`
 
 
 export default function Login(){
@@ -38,15 +37,20 @@ export default function Login(){
     }
 
     return(
-    <form id="login" onSubmit={(event)=>loginUser(event)}>
+    
+    <>
+        <Link id="nav-login-link" to="/login">Log In</Link>
+        <form id="nav-login-form" onSubmit={(event)=>loginUser(event)}>
 
-        <label htmlFor="username">Username:</label>
-        <input className="login-input" type="text" id="username" name = "username" value ={username} onChange={(event)=>setUsername(event.target.value)} />
+            <label htmlFor="username">Username:</label>
+            <input className="login-input" type="text" id="username" name = "username" value ={username} onChange={(event)=>setUsername(event.target.value)} />
 
-        <label htmlFor="password">Password:</label>
-        <input className="login-input" type="password" id="password" name="password" value ={password} onChange={(event)=>setPassword(event.target.value)} />
+            <label htmlFor="password">Password:</label>
+            <input className="login-input" type="password" id="password" name="password" value ={password} onChange={(event)=>setPassword(event.target.value)} />
 
-        <input id = "login-button" type="submit" value="login" />
-    </form>
+            <input id = "login-button" type="submit" value="Log In" />
+        </form>
+    
+    </>
     )
 }
