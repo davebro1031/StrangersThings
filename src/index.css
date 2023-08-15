@@ -6,6 +6,7 @@ nav{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 3px solid black;
 }
 
 #nav-logo{
@@ -52,15 +53,26 @@ a{
   font-family: Arial, Helvetica, sans-serif;
 }
 
-@media (min-width:900px){
+@media (min-width:800px){
 
   #nav-login-link{
     display: none;
   }
 }
 
-@media (max-width:900px){
+@media (max-width:800px){
   #nav-login-form, #nav-new-user{
     display: none;
   }
+}
+
+#content{
+  display: grid;
+  grid-template-columns: 150px 1fr;
+}
+
+#side-bar{
+  border: 1px solid black;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
