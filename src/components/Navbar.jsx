@@ -9,7 +9,7 @@ export default function Navbar(){
             </Link>
             <div id="nav-content">
                 <Login/>
-                <Link to="/newuser">New User</Link>
+                <Link id="nav-new-user" to="/newuser">New User</Link>
             </div>
         </nav>
     )

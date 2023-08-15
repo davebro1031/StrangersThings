@@ -4,7 +4,7 @@ import {Link} from "react-router-dom"
 const BASE_URL = `${import.meta.env.VITE_STRANGERS_THINGS_BASE_API}`
 
 
-export default function Login(){
+export default function LoginPage(){
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -38,19 +38,23 @@ export default function Login(){
 
     return(
     
-    <>
-        <Link id="nav-login-link" to="/login">Log In</Link>
-        <form id="nav-login-form" onSubmit={(event)=>loginUser(event)}>
+    <div id="login-page">
+        <form id="login-page-form" onSubmit={(event)=>loginUser(event)}>
 
-            <label htmlFor="username">Username:</label>
-            <input className="login-input" type="text" id="username" name = "username" value ={username} onChange={(event)=>setUsername(event.target.value)} />
+            <div>
+                <label htmlFor="username">Username:</label>
+                <input className="login-input" type="text" id="username" name = "username" value ={username} onChange={(event)=>setUsername(event.target.value)} />
+            </div>
 
-            <label htmlFor="password">Password:</label>
-            <input className="login-input" type="password" id="password" name="password" value ={password} onChange={(event)=>setPassword(event.target.value)} />
+            <div>
+                <label htmlFor="password">Password:</label>
+                <input className="login-input" type="password" id="password" name="password" value ={password} onChange={(event)=>setPassword(event.target.value)} />
+            </div>
 
             <input id = "login-button" type="submit" value="Log In" />
         </form>
+        <Link to="/newuser">Don't have an account?</Link>
     
-    </>
+    </div>
     )
 }

@@ -1,7 +1,12 @@
+:root{
+  --link-color: #3700ff
+}
+
 nav{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 3px solid black;
 }
 
 #nav-logo{
@@ -14,7 +19,7 @@ nav{
   align-items: center;
 }
 
-#login>*{
+#nav-login-form>*{
   margin: 0.2em;
 }
 
@@ -23,10 +28,51 @@ nav{
 }
 
 #login-button{
-  width: max-content;
+  color: white;
+  background-color: var(--link-color);
+  border: 1px solid gray;
+  border-radius: 0.3em;
+  height: 2em;
 }
 
 a{
   text-decoration: none;
-  color: rgb(55, 0, 255)
+  color: var(--link-color)
+}
+
+#nav-login-link{
+  color: white;
+  background-color: var(--link-color);
+  border: 1px solid gray;
+  border-radius: 0.3em;
+  height: 1.8em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1px 6px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@media (min-width:800px){
+
+  #nav-login-link{
+    display: none;
+  }
+}
+
+@media (max-width:800px){
+  #nav-login-form, #nav-new-user{
+    display: none;
+  }
+}
+
+#content{
+  display: grid;
+  grid-template-columns: 150px 1fr;
+}
+
+#side-bar{
+  border: 1px solid black;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
