@@ -1,7 +1,13 @@
 import React from "react";
+import Davescomponent from "./Davescomponent";
 
 function Home() {
-  return <div>Home</div>;
+  return (
+  <>
+    <p>Home</p>
+    <Davescomponent/>
+  </>
+  );
 }
 
 export default Home;
