@@ -8,6 +8,7 @@ function Home() {
     <div>Fred's Edits</div>
     <Davescomponent/>
   </>
+  <p>woweee make a conflict why dont you</p>
   );
 }
 
