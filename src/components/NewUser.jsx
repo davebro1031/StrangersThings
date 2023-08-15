@@ -33,23 +33,20 @@ export default function NewUser(){
     }
 
     return (
-        <form onSubmit={(event)=>loginUser(event)}>
+        <div id="new-user-page">
+            <h3 className="text-center">Create an Account</h3>
+            
+            <form id="new-user-form" onSubmit={(event)=>loginUser(event)}>
         
-            <h3>New User</h3>
+                <input type="text" id="newUsername" name = "newUsername" placeholder="username" value ={newUsername} onChange={(event)=>setNewUsername(event.target.value)} />
 
-            <label htmlFor="newUsername">Username:</label>
-            <input type="text" id="newUsername" name = "newUsername" value ={newUsername} onChange={(event)=>setNewUsername(event.target.value)} />
-            <br/>
+                <input type="password" id="newPassword" name="newPassword" placeholder="password" value ={newPassword} onChange={(event)=>setNewPassword(event.target.value)} />
 
-            <label htmlFor="newPassword">Password:</label>
-            <input type="password" id="newPassword" name="newPassword" value ={newPassword} onChange={(event)=>setNewPassword(event.target.value)} />
-            <br/>
+                <input type="password" id="passwordConfirm" name="passwordConfirm" placeholder="confirm password" value ={passwordConfirm} onChange={(event)=>setPasswordConfirm(event.target.value)} />
 
-            <label htmlFor="passwordConfirm">Password:</label>
-            <input type="password" id="passwordConfirm" name="passwordConfirm" value ={passwordConfirm} onChange={(event)=>setPasswordConfirm(event.target.value)} />
-            <br/>
-
-            <input type="submit" value="submit" />
-        </form>
+                <input type="submit" value="Register" id="register-user" />
+            </form>
+        </div>
+        
     )
 }
