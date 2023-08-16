@@ -1,0 +1,135 @@
+:root {
+  --blue-600: #0079c9;
+  --blue-100: #388ec7;
+}
+
+.button {
+  padding: 0.6em;
+  border: 0.1em solid #eee;
+  background: none;
+  cursor: pointer;
+  border-radius: 0.4em;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+.button-blue {
+  background-color: var(--blue-600);
+  color: white;
+}
+.button-blue:hover {
+  background-color: var(--blue-100);
+}
+.button-group {
+  display: flex;
+  justify-content: center;
+  padding: 0.4em 0 0 0;
+}
+.text-area {
+  width: 28.5vw;
+  height: 150px;
+  border: 1px solid #7b7d7d;
+  box-shadow: #ddd 0px 0px 10px;
+  border-radius: 0.6em;
+  padding: 0.8em;
+  resize: none;
+}
+.text-area:focus {
+  outline-color: var(--blue-100);
+  box-shadow: var(--blue-100) 0px 0px 2px;
+  outline-width: 0.1em;
+}
+.selectedImage {
+  border: 10px #000 solid;
+}
+.img-block {
+  display: inline-block;
+  /* display: none; */
+  height: 200px;
+  width: 150px;
+
+  padding: 0 0.2em;
+}
+.messages-form {
+  display: flex;
+  width: 30vw;
+  height: auto;
+  flex-direction: column;
+  border: 1px solid #eee;
+  box-shadow: #eee 0px 0px 10px;
+  border-radius: 0.6em;
+  padding: 2em;
+  background-color: #fbfbfb;
+}
+
+/**width*/
+.w-10 {
+  width: 10%;
+}
+.w-20 {
+  width: 20%;
+}
+.w-30 {
+  width: 30%;
+}
+.w-40 {
+  width: 40%;
+}
+.w-50 {
+  width: 50%;
+}
+.w-100 {
+  width: 100%;
+}
+/**flex*/
+.flex-right {
+  display: flex;
+  justify-content: right;
+}
+
+.form-container {
+  margin-top: 5em;
+  display: flex;
+  justify-content: center;
+}
+input {
+}
+.form-group {
+  padding: 0.4em 0;
+}
+.form-group label {
+  display: block;
+  font-weight: 800;
+  font-size: 1.2em;
+  padding-bottom: 0.2em;
+}
+.form-group input,
+select {
+  height: 2em;
+  border-radius: 0.2em;
+  border: 0.1em #ddd solid;
+  width: 100%;
+  font-size: 1.2em;
+  padding: 0 0.4em;
+  margin: 0;
+}
+.form-group input:focus,
+select:focus {
+  outline: 0.1em #268dff solid;
+}
+
+@media only screen and (max-width: 568px) {
+  .messages-form {
+    width: 100vw;
+  }
+  .text-area {
+    width: 100vw;
+  }
+}
+@media only screen and (min-width: 568px) and (max-width: 768px) {
+  .messages-form {
+    width: 70vw;
+  }
+  .text-area {
+    width: 70vw;
+}
