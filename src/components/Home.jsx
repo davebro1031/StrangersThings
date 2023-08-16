@@ -14,11 +14,14 @@ function Home() {
     const d = await response.json();
     console.log(d);
   };
+
   useEffect(() => {
     fetchPosts();
 
     return () => {};
   }, []);
+
+  return <div>Home page for now -- replace this with the posts that have been fetched</div>
 }
 
 export default Home;
