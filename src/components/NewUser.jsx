@@ -8,6 +8,7 @@ export default function NewUser(){
     const [newPassword, setNewPassword] = useState("")
     const [passwordConfirm, setPasswordConfirm] = useState("")
 
+    
     async function loginUser(event){
         try {
             event.preventDefault();
@@ -39,23 +40,18 @@ export default function NewUser(){
             <form id="new-user-form" onSubmit={(event)=>loginUser(event)}>
         
                 <div>
-                    <input type="text" id="newUsername" name = "newUsername" placeholder="username" value ={newUsername} onChange={(event)=>setNewUsername(event.target.value)} />
-                    <div className="input-error">not available</div>
+                    <input required type="text" id="newUsername" name = "newUsername" placeholder="username" value ={newUsername} onChange={(event)=>setNewUsername(event.target.value)} />
+                    <ErrorNewUser newUsername={newUsername}/>
                 </div>
 
                 <div>
-                    <input type="password" id="newPassword" name="newPassword" placeholder="password" value ={newPassword} onChange={(event)=>setNewPassword(event.target.value)} />
-                    <div>
-                        <div className="input-error">must contain at least 4 characters</div>
-                        <div className="input-error">must contain at least one uppercase letter</div>
-                        <div className="input-error">must contain at least one lowercase letter</div>
-                        <div className="input-error">must contain at least one special character (!"#$%&'()*+,-./:;=?@[\]^_`|~)</div>
-                    </div>
+                    <input required type="password" id="newPassword" name="newPassword" placeholder="password" value ={newPassword} onChange={(event)=>setNewPassword(event.target.value)} />
+                    <ErrorNewPass newPassword={newPassword}/>
                 </div>
 
                 <div>
-                    <input type="password" id="passwordConfirm" name="passwordConfirm" placeholder="confirm password" value ={passwordConfirm} onChange={(event)=>setPasswordConfirm(event.target.value)} />
-                    <div className="input-error">passwords must match</div>
+                    <input required type="password" id="passwordConfirm" name="passwordConfirm" placeholder="confirm password" value ={passwordConfirm} onChange={(event)=>setPasswordConfirm(event.target.value)} />
+                    <ErrorConfirmPass match={newPassword===passwordConfirm}/>
                 </div>
 
                 <input type="submit" value="Register" id="register-user" />
@@ -63,4 +59,43 @@ export default function NewUser(){
         </div>
         
     )
+}
+
+function ErrorNewUser({newUsername}){
+    return <div className="input-error">not available {newUsername}</div>
+
+}
+
+function ErrorNewPass({newPassword}){
+
+    function containsNumber(str){
+        return /\d/.test(str)
+    }
+
+    function containsLowercase(str){
+        return str.toUpperCase() != str;
+    }
+
+    function containsUppercase(str){
+        return str.toLowerCase() != str;
+    }
+
+    function containsSpecial(str){
+        let special = /[!"#$%&'()*+,-./:;=?@[\]^_`|~]/
+        return special.test(str)
+    }
+
+    return (
+        <div>
+            {newPassword.length>=4?null:<div className="input-error">must contain at least 4 characters</div>}
+            {containsLowercase(newPassword)?null:<div className="input-error">must contain at least one lowercase letter</div>}
+            {containsUppercase(newPassword)?null:<div className="input-error">must contain at least one uppercase letter</div>}
+            {containsNumber(newPassword)?null:<div className="input-error">must contain at least one number</div>}
+            {containsSpecial(newPassword)?null:<div className="input-error">must contain at least one special character (!"#$%&'()*+,-./:;=?@[\]^_`|~)</div>}
+        </div>
+    )
+}
+
+function ErrorConfirmPass({match}){
+    return <>{match? null: <div className="input-error">passwords must match</div>}</>
 }
