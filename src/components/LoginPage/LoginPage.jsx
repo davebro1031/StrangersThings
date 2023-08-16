@@ -53,9 +53,9 @@ export default function LoginPage(){
 
     return(
     
-    <div id="login-page">
+    <div className="form-container">
         <h2>Login to Stranger's Things</h2>
-        <form id="login-page-form" onSubmit={(event)=>loginUser(event)}>
+        <form className="form" onSubmit={(event)=>loginUser(event)}>
 
             <div>
                 <input required className="login-input" type="text" id="username" name = "username" placeholder="username" value ={username} onChange={(event)=>setUsername(event.target.value)} />
@@ -65,7 +65,7 @@ export default function LoginPage(){
                 <input required className="login-input" type="password" id="password" name="password" placeholder="password" value ={password} onChange={(event)=>setPassword(event.target.value)} />
             </div>
 
-            <input id = "login-button" type="submit" value="Log In" />
+            <input className = "button-1" type="submit" value="Log In" />
         </form>
         <Link to="/newuser">Don't have an account?</Link>
         <LoginPopup 

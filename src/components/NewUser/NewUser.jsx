@@ -47,7 +47,7 @@ export default function NewUser(){
     }
 
     return (
-        <div id="new-user-page">
+        <div className="form-container">
             <h2>Create an Account</h2>
             
             <form id="new-user-form" onSubmit={(event)=>loginUser(event)}>
@@ -67,7 +67,7 @@ export default function NewUser(){
                     <ErrorConfirmPass match={newPassword===passwordConfirm} setConfirmCheck={setConfirmCheck}/>
                 </div>
 
-                <input type="submit" value="Register" id="register-user" />
+                <input type="submit" value="Register" className="button-1" />
             </form>
             <RegisteredPopup trigger={popup}/>
         </div>
