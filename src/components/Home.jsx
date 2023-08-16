@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Sidebar from "./Sidebar";
+import Posts from "./Posts";
 import useApi from "../hooks/useApi";
 
 function Home() {
@@ -25,7 +26,7 @@ function Home() {
   return (
   <div id = "home">
     <Sidebar/>
-    <div>Home page for now -- replace this with the posts that have been fetched</div>
+    <Posts/>
   </div>
   )
 }
