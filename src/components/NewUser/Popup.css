@@ -1,0 +1,19 @@
+.popup{
+    position: fixed;
+    top:0;
+    left:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.popup-inner{
+    padding: 0.7em;
+    background-color: #9bff85;
+    border-radius:1em;
+    color: #005d00;
+    font-size: 1.2em
+}

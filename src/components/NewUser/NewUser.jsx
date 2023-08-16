@@ -1,5 +1,5 @@
 import {useState} from "react"
-import { useNavigate } from "react-router-dom"
+import RegisteredPopup from "./RegisteredPopup"
 
 const BASE_URL = `${import.meta.env.VITE_STRANGERS_THINGS_BASE_API}`
 
@@ -9,7 +9,7 @@ export default function NewUser(){
     const [newPassword, setNewPassword] = useState("")
     const [passwordConfirm, setPasswordConfirm] = useState("")
     const [nameAvailable, setNameAvailable] = useState(true)
-    const navigate = useNavigate();
+    const [popup, setPopup] = useState(false)
 
     async function loginUser(event){
         try {
@@ -34,7 +34,9 @@ export default function NewUser(){
                   setNameAvailable(false)
               }    
 
-              if(result.success) navigate("/login")
+              if(result.success){
+                setPopup(true);
+              }
               
               return result
           } catch (err) {
@@ -65,6 +67,7 @@ export default function NewUser(){
 
                 <input type="submit" value="Register" id="register-user" />
             </form>
+            <RegisteredPopup trigger={popup}/>
         </div>
         
     )
