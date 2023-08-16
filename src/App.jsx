@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import LoginPage from "./components/LoginPage";
 import Sidebar from "./components/Sidebar";
 import MessageSender from "./components/Messaging/MessageSender";
+import Posts from "./Posts"
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="login" element={<LoginPage />} />
           <Route path="messages" element={<MessageSender />} />
           <Route path="*" element={<h2>Route not found</h2>} />
+          <Route path="Posts" element={<Posts/>}/>
         </Routes>
       </div>
     </>
