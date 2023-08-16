@@ -39,16 +39,16 @@ export default function Login(){
     return(
     
     <>
-        <Link id="nav-login-link" to="/login">Log In</Link>
+        <Link id="nav-login-link" className="button-1" to="/login">Log In</Link>
         <form id="nav-login-form" onSubmit={(event)=>loginUser(event)}>
 
             <label htmlFor="username">Username:</label>
-            <input className="login-input" type="text" id="username" name = "username" value ={username} onChange={(event)=>setUsername(event.target.value)} />
+            <input className="nav-input" type="text" id="username" name = "username" value ={username} onChange={(event)=>setUsername(event.target.value)} />
 
             <label htmlFor="password">Password:</label>
-            <input className="login-input" type="password" id="password" name="password" value ={password} onChange={(event)=>setPassword(event.target.value)} />
+            <input className="nav-input" type="password" id="password" name="password" value ={password} onChange={(event)=>setPassword(event.target.value)} />
 
-            <input id = "login-button" type="submit" value="Log In" />
+            <input className = "button-1" type="submit" value="Log In" />
         </form>
     
     </>

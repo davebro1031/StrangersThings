@@ -92,8 +92,8 @@
   display: flex;
   justify-content: center;
 }
-input {
-}
+/* input {
+} */
 .form-group {
   padding: 0.4em 0;
 }
@@ -132,4 +132,5 @@ select:focus {
   }
   .text-area {
     width: 70vw;
+  }
 }
