@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom"
-import './Popup.css'
+import '../../styles/Popup.css'
 
 
 function RegisteredPopup(props) {
@@ -14,7 +14,7 @@ function RegisteredPopup(props) {
         <>
             {props.trigger?
     
-                <div className='popup'>
+                <div className='popup success'>
                     <div className='popup-inner'>
                         Successfully registered!
                     </div>

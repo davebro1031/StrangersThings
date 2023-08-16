@@ -12,8 +12,16 @@
 
 .popup-inner{
     padding: 0.7em;
-    background-color: #9bff85;
     border-radius:1em;
-    color: #005d00;
     font-size: 1.2em
+}
+
+.success{
+    color: #005d00;
+    background-color: #9bff85;
+}
+
+.fail{
+    color: #8d0000;
+    background-color: #ff8686;
 }
