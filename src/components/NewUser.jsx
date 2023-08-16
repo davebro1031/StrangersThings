@@ -1,4 +1,5 @@
 import {useState} from "react"
+import { useNavigate } from "react-router-dom"
 
 const BASE_URL = `${import.meta.env.VITE_STRANGERS_THINGS_BASE_API}`
 
@@ -8,6 +9,7 @@ export default function NewUser(){
     const [newPassword, setNewPassword] = useState("")
     const [passwordConfirm, setPasswordConfirm] = useState("")
     const [nameAvailable, setNameAvailable] = useState(true)
+    const navigate = useNavigate();
 
     async function loginUser(event){
         try {
@@ -32,6 +34,8 @@ export default function NewUser(){
                   setNameAvailable(false)
               }    
 
+              if(result.success) navigate("/login")
+              
               return result
           } catch (err) {
             console.error(err);
