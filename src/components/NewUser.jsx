@@ -7,8 +7,8 @@ export default function NewUser(){
     const [newUsername, setNewUsername] = useState("")
     const [newPassword, setNewPassword] = useState("")
     const [passwordConfirm, setPasswordConfirm] = useState("")
+    const [nameAvailable, setNameAvailable] = useState(true)
 
-    
     async function loginUser(event){
         try {
             event.preventDefault();
@@ -27,6 +27,11 @@ export default function NewUser(){
               });
               const result = await response.json();
               console.log(result)
+
+              if(!result.success && result.error.name==="UserExists"){
+                  setNameAvailable(false)
+              }    
+
               return result
           } catch (err) {
             console.error(err);
@@ -41,7 +46,7 @@ export default function NewUser(){
         
                 <div>
                     <input required type="text" id="newUsername" name = "newUsername" placeholder="username" value ={newUsername} onChange={(event)=>setNewUsername(event.target.value)} />
-                    <ErrorNewUser newUsername={newUsername}/>
+                    <ErrorNewUser nameAvailable={nameAvailable}/>
                 </div>
 
                 <div>
@@ -61,9 +66,8 @@ export default function NewUser(){
     )
 }
 
-function ErrorNewUser({newUsername}){
-    return <div className="input-error">not available {newUsername}</div>
-
+function ErrorNewUser({nameAvailable}){
+    return <>{nameAvailable?null:<div className="input-error">username not available</div>}</>
 }
 
 function ErrorNewPass({newPassword}){
