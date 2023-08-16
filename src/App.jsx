@@ -6,7 +6,7 @@ import Home from "./components/Home";
 import LoginPage from "./components/LoginPage";
 import Sidebar from "./components/Sidebar";
 import MessageSender from "./components/Messaging/MessageSender";
-import Posts from "./Posts"
+import Posts from "./components/Posts"
 
 function App() {
   return (
