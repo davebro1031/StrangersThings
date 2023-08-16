@@ -8,7 +8,7 @@ export default function Posts() {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        async function GetPosts() {
+        async function getPosts() {
             try {
                 const response = await fetch(full_url)
                 const result = await response.json();
@@ -20,7 +20,7 @@ export default function Posts() {
                 console.error(err);
             }
         }
-        GetPosts()
+        getPosts()
     }
         , [])
     return (
@@ -50,10 +50,6 @@ export default function Posts() {
                     
                     
                     }
-                
-
-        
-
 
                 </tbody>
             </table>
