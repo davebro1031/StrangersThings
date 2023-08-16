@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Sidebar from "./Sidebar";
 import useApi from "../hooks/useApi";
 
 function Home() {
@@ -21,7 +22,12 @@ function Home() {
     return () => {};
   }, []);
 
-  return <div>Home page for now -- replace this with the posts that have been fetched</div>
+  return (
+  <div id = "home">
+    <Sidebar/>
+    <div>Home page for now -- replace this with the posts that have been fetched</div>
+  </div>
+  )
 }
 
 export default Home;

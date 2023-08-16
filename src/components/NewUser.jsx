@@ -7,6 +7,7 @@ export default function NewUser(){
     const [newUsername, setNewUsername] = useState("")
     const [newPassword, setNewPassword] = useState("")
     const [passwordConfirm, setPasswordConfirm] = useState("")
+    const [nameAvailable, setNameAvailable] = useState(true)
 
     async function loginUser(event){
         try {
@@ -26,6 +27,11 @@ export default function NewUser(){
               });
               const result = await response.json();
               console.log(result)
+
+              if(!result.success && result.error.name==="UserExists"){
+                  setNameAvailable(false)
+              }    
+
               return result
           } catch (err) {
             console.error(err);
@@ -33,23 +39,67 @@ export default function NewUser(){
     }
 
     return (
-        <form onSubmit={(event)=>loginUser(event)}>
+        <div id="new-user-page">
+            <h2>Create an Account</h2>
+            
+            <form id="new-user-form" onSubmit={(event)=>loginUser(event)}>
         
-            <h3>New User</h3>
+                <div>
+                    <input required type="text" id="newUsername" name = "newUsername" placeholder="username" value ={newUsername} onChange={(event)=>setNewUsername(event.target.value)} />
+                    <ErrorNewUser nameAvailable={nameAvailable}/>
+                </div>
 
-            <label htmlFor="newUsername">Username:</label>
-            <input type="text" id="newUsername" name = "newUsername" value ={newUsername} onChange={(event)=>setNewUsername(event.target.value)} />
-            <br/>
+                <div>
+                    <input required type="password" id="newPassword" name="newPassword" placeholder="password" value ={newPassword} onChange={(event)=>setNewPassword(event.target.value)} />
+                    <ErrorNewPass newPassword={newPassword}/>
+                </div>
 
-            <label htmlFor="newPassword">Password:</label>
-            <input type="password" id="newPassword" name="newPassword" value ={newPassword} onChange={(event)=>setNewPassword(event.target.value)} />
-            <br/>
+                <div>
+                    <input required type="password" id="passwordConfirm" name="passwordConfirm" placeholder="confirm password" value ={passwordConfirm} onChange={(event)=>setPasswordConfirm(event.target.value)} />
+                    <ErrorConfirmPass match={newPassword===passwordConfirm}/>
+                </div>
 
-            <label htmlFor="passwordConfirm">Password:</label>
-            <input type="password" id="passwordConfirm" name="passwordConfirm" value ={passwordConfirm} onChange={(event)=>setPasswordConfirm(event.target.value)} />
-            <br/>
-
-            <input type="submit" value="submit" />
-        </form>
+                <input type="submit" value="Register" id="register-user" />
+            </form>
+        </div>
+        
     )
+}
+
+function ErrorNewUser({nameAvailable}){
+    return <>{nameAvailable?null:<div className="input-error">username not available</div>}</>
+}
+
+function ErrorNewPass({newPassword}){
+
+    function containsNumber(str){
+        return /\d/.test(str)
+    }
+
+    function containsLowercase(str){
+        return str.toUpperCase() != str;
+    }
+
+    function containsUppercase(str){
+        return str.toLowerCase() != str;
+    }
+
+    function containsSpecial(str){
+        let special = /[!"#$%&'()*+,-./:;=?@[\]^_`|~]/
+        return special.test(str)
+    }
+
+    return (
+        <div>
+            {newPassword.length>=4?null:<div className="input-error">must contain at least 4 characters</div>}
+            {containsLowercase(newPassword)?null:<div className="input-error">must contain at least one lowercase letter</div>}
+            {containsUppercase(newPassword)?null:<div className="input-error">must contain at least one uppercase letter</div>}
+            {containsNumber(newPassword)?null:<div className="input-error">must contain at least one number</div>}
+            {containsSpecial(newPassword)?null:<div className="input-error">must contain at least one special character (!"#$%&'()*+,-./:;=?@[\]^_`|~)</div>}
+        </div>
+    )
+}
+
+function ErrorConfirmPass({match}){
+    return <>{match? null: <div className="input-error">passwords must match</div>}</>
 }
