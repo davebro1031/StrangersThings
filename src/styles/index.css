@@ -61,7 +61,7 @@ a{
   color: var(--link-color)
 }
 
-@media (min-width:800px){
+@media (min-width:850px){
 
   #nav-login-link{
     display: none;
@@ -69,7 +69,7 @@ a{
 
 }
 
-@media (max-width:800px){
+@media (max-width:850px){
   #nav-login-form, #nav-new-user{
     display: none;
   }

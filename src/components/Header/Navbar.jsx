@@ -1,7 +1,11 @@
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 import Login from "./Login"
 
-export default function Navbar({currentToken, currentUser, setCurrentToken, setCurrentUser}){
+export default function Navbar(){
+    
+    const currentUser = localStorage.getItem("user")
+    const navigate = useNavigate()
+
     return (
         <nav>
             <Link to="/">
@@ -13,10 +17,9 @@ export default function Navbar({currentToken, currentUser, setCurrentToken, setC
                         <h3>{currentUser}</h3>
                         <button className="button-1" 
                             onClick={()=>{
-                                setCurrentToken(null)
-                                setCurrentUser(null)
                                 localStorage.removeItem("token")
                                 localStorage.removeItem("user")
+                                navigate("/")
                             }}>
                             Log Out
                         </button>

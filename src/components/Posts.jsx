@@ -12,7 +12,7 @@ export default function Posts() {
             try {
                 const response = await fetch(full_url)
                 const result = await response.json();
-                console.log(result)
+                // console.log(result)
                 setPosts(result.data.posts)
                 return result
 
