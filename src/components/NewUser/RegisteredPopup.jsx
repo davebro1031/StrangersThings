@@ -14,8 +14,8 @@ function RegisteredPopup(props) {
         <>
             {props.trigger?
     
-                <div className='popup success'>
-                    <div className='popup-inner'>
+                <div className='popup'>
+                    <div className='popup-inner success'>
                         Successfully registered!
                     </div>
                 </div>:
