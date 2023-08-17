@@ -21,12 +21,12 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar currentToken={currentToken} currentUser={currentUser} setCurrentToken={setCurrentToken} setCurrentUser={setCurrentUser} />
       <div id="content">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home currentToken={currentToken} currentUser={currentUser}/>} />
           <Route path="/newuser" element={<NewUser />} />
-          <Route path="login" element={<LoginPage />} />
+          <Route path="login" element={<LoginPage setCurrentToken={setCurrentToken} setCurrentUser={setCurrentUser}/>} />
           <Route path="messages" element={<Messages />} />
           <Route path="*" element={<h2>Route not found</h2>} />
           <Route path="posts" element={<Posts />} />

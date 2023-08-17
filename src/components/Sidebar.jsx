@@ -6,7 +6,7 @@ export default function Sidebar() {
       messages/inbox if you're logged in
       <ul style={{ listStyle: "none" }}>
         <li>
-          <Link to="messages">My Messgaes</Link>
+          <Link to="messages">My Messages</Link>
         </li>
       </ul>
     </div>
