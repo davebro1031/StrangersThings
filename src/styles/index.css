@@ -21,6 +21,10 @@ nav{
   align-items: center;
 }
 
+#nav-content>*{
+  margin:0.2em
+}
+
 #nav-login-form>*{
   margin: 0.2em;
 }

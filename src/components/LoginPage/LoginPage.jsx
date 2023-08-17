@@ -5,7 +5,7 @@ import LoginPopup from "./LoginPopup"
 const BASE_URL = `${import.meta.env.VITE_STRANGERS_THINGS_BASE_API}`
 
 
-export default function LoginPage(){
+export default function LoginPage({setCurrentToken, setCurrentUser}){
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -36,10 +36,13 @@ export default function LoginPage(){
             if(result.success){
               localStorage.setItem("token", result.data.token)
               localStorage.setItem("user", username)
+              setCurrentToken(result.data.token)
+              setCurrentUser(username)
 
               setMessage("Login Successful!")
               setMessageType("success")
               setPath("/")
+
             }else if(result.error.name==="InvalidCredentials"){
               setMessage("Username and password do not match")
               setMessageType("fail")
