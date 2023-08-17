@@ -1,9 +1,6 @@
 import {useState} from "react"
 import {Link, useNavigate, useLocation} from "react-router-dom"
 
-const BASE_URL = `${import.meta.env.VITE_STRANGERS_THINGS_BASE_API}`
-
-
 export default function Login(){
 
     const [username, setUsername] = useState("")

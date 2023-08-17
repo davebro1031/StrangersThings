@@ -62,8 +62,12 @@ export default function NewUser(){
                 console.log(result)
 
                 if(result.success){
+                    localStorage.setItem("token", result.data.token)
+                    localStorage.setItem("user", newUsername)
+
                     setNameAvailable(true);
                     setPopup(true);
+                    
                 }else if(result.error.name==="UserExists"){
                     setNameAvailable(false)
                 }

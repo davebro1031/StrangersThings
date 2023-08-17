@@ -7,7 +7,7 @@ function RegisteredPopup(props) {
     const navigate = useNavigate();
 
     if(props.trigger){
-        setTimeout(() => navigate("/login"), 2000)
+        setTimeout(() => navigate("/"), 2000)
     }
 
     return (
