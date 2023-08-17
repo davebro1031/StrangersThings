@@ -4,8 +4,8 @@ import NewUser from "./components/NewUser/NewUser";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import LoginPage from "./components/LoginPage/LoginPage";
-import MessageSender from "./components/Messaging/MessageSender";
-import Posts from "./components/Posts"
+import Messages from "./components/Messaging/Messages";
+import Posts from "./components/Posts";
 
 function App() {
   return (
@@ -16,9 +16,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/newuser" element={<NewUser />} />
           <Route path="login" element={<LoginPage />} />
-          <Route path="messages" element={<MessageSender />} />
+          <Route path="messages" element={<Messages />} />
           <Route path="*" element={<h2>Route not found</h2>} />
-          <Route path="posts" element={<Posts/>}/>
+          <Route path="posts" element={<Posts />} />
         </Routes>
       </div>
     </>
