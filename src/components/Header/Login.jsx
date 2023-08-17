@@ -15,7 +15,7 @@ export default function Login(){
 
 
     return(
-    
+      location.pathname==="/login"? null:
       <>
         
         <Link id="nav-login-link" className="button-1" to="/login">Log In</Link>
@@ -29,6 +29,8 @@ export default function Login(){
 
           <button className = "button-1" onClick={()=>navigate("/login", {state:{username: username, password:password}} ) } >Log In</button>
         </div>
+        <Link id="nav-new-user" to="/newuser">New User</Link>
+
       </>
       
     )

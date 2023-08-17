@@ -25,10 +25,7 @@ export default function Navbar(){
                         </button>
                     </>
                     :
-                    <>
-                        <Login/>
-                        <Link id="nav-new-user" to="/newuser">New User</Link>
-                    </>
+                    <Login/>
                 }
             </div>
         </nav>
