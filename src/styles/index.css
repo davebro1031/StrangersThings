@@ -148,3 +148,9 @@ a{
   font-size: 0.7em;
   color: red;
 }
+
+.listing:hover{
+  cursor: pointer;
+  color: var(--link-color);
+  text-decoration: underline;
+}
