@@ -99,7 +99,7 @@ a{
 
 }
 
-#side-bar{
+#sidebar{
   z-index:1;
   position: fixed;
 
@@ -109,6 +109,17 @@ a{
   background-color: white;
   border-right: 2px solid black;
   box-sizing: border-box;
+}
+
+#sidebar-list{
+  margin:0;
+  padding:0.5em 0 0;
+  list-style: none;
+}
+
+#sidebar-list>li{
+  padding: 0.5em 0;
+  text-align: center;
 }
 
 .content-block {
