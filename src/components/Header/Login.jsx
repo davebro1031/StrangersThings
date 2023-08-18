@@ -12,18 +12,18 @@ export default function Login(){
       location.pathname==="/login"? null:
       <>
         
-        <Link id="nav-login-link" className="button-1" to="/login">Log In</Link>
+        <Link id="header-login-link" className="button-1" to="/login">Log In</Link>
 
-        <div id="nav-login-form">
+        <div id="header-login-form">
           <label htmlFor="username">Username:</label>
-          <input className="nav-input" type="text" name = "username" value ={username} onChange={(event)=>setUsername(event.target.value)} />
+          <input className="header-input" type="text" name = "username" value ={username} onChange={(event)=>setUsername(event.target.value)} />
 
           <label htmlFor="password">Password:</label>
-          <input className="nav-input" type="password" name="password" value ={password} onChange={(event)=>setPassword(event.target.value)} />
+          <input className="header-input" type="password" name="password" value ={password} onChange={(event)=>setPassword(event.target.value)} />
 
           <button className = "button-1" onClick={()=>navigate("/login", {state:{username: username, password:password}} ) } >Log In</button>
         </div>
-        <Link id="nav-new-user" to="/newuser">New User</Link>
+        <Link id="header-new-user" to="/newuser">New User</Link>
 
       </>
       

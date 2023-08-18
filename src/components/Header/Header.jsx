@@ -7,11 +7,11 @@ export default function Navbar(){
     const navigate = useNavigate()
 
     return (
-        <nav>
+        <header>
             <Link to="/">
-                <div id="nav-logo">Stranger's Things</div>
+                <div id="header-logo">Stranger's Things</div>
             </Link>
-            <div id="nav-content">
+            <div id="header-content">
                 {currentUser?
                     <>
                         <h3>{currentUser}</h3>
@@ -20,6 +20,7 @@ export default function Navbar(){
                                 localStorage.removeItem("token")
                                 localStorage.removeItem("user")
                                 navigate("/")
+                                window.location.reload(true)
                             }}>
                             Log Out
                         </button>
@@ -28,6 +29,6 @@ export default function Navbar(){
                     <Login/>
                 }
             </div>
-        </nav>
+        </header>
     )
 }

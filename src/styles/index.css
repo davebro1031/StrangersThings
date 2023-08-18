@@ -4,28 +4,28 @@
   --blue-100: #388ec7;
 }
 
-nav{
+header{
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 3px solid black;
 }
 
-#nav-logo{
+#header-logo{
   font-size: 2.5em;
 }
 
-#nav-content{
+#header-content{
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-#nav-content>*{
+#header-content>*{
   margin:0.2em
 }
 
-#nav-login-form>*{
+#header-login-form>*{
   margin: 0.2em;
 }
 
@@ -34,11 +34,11 @@ nav{
   /* put more styling */
 }
 
-.nav-input{
+.header-input{
   width: 120px;
 }
 
-#nav-login-link{
+#header-login-link{
   height: 1.8em;
   display: flex;
   flex-direction: column;
@@ -64,14 +64,14 @@ a{
 
 @media (min-width:850px){
 
-  #nav-login-link{
+  #header-login-link{
     display: none;
   }
 
 }
 
 @media (max-width:850px){
-  #nav-login-form, #nav-new-user{
+  #header-login-form, #header-new-user{
     display: none;
   }
 
