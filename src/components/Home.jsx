@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Sidebar from "./Sidebar";
+import Sidebar from "./Access/Sidebar";
 import Posts from "./Posts";
 import useApi from "../hooks/useApi";
 

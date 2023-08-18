@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const Base_URL = '2308-FTB-MT-WEB-PT'
+const Base_URL = '2305-FTB-MT-WEB-PT'
 const full_url = `https://strangers-things.herokuapp.com/api/${Base_URL}/posts`
 
 
@@ -25,7 +25,7 @@ export default function Posts() {
         , [])
     return (
         <>
-            <table>
+            <table className="content-block">
                 <tbody>{
                     posts.map((post)=>{
                         return(
