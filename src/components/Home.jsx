@@ -25,7 +25,6 @@ function Home() {
 
   return (
   <div id = "home">
-    <Sidebar/>
     <Posts/>
   </div>
   )
