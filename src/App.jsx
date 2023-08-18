@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import NewUser from "./components/NewUser/NewUser";
-import Navbar from "./components/Header/Navbar";
+import Header from "./components/Header/Header";
 import Home from "./components/Home";
 import LoginPage from "./components/LoginPage/LoginPage";
 import Messages from "./components/Messaging/Messages";
@@ -11,7 +11,7 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <Header />
       <div id="content">
         <Routes>
           <Route path="/" element={<Home/>} />

@@ -7,7 +7,7 @@ export default function Navbar(){
     const navigate = useNavigate()
 
     return (
-        <nav>
+        <header>
             <Link to="/">
                 <div id="nav-logo">Stranger's Things</div>
             </Link>
@@ -15,11 +15,12 @@ export default function Navbar(){
                 {currentUser?
                     <>
                         <h3>{currentUser}</h3>
-                        <button className="button-1" 
+                        <button type="submit" className="button-1" 
                             onClick={()=>{
                                 localStorage.removeItem("token")
                                 localStorage.removeItem("user")
                                 navigate("/")
+                                window.location.reload(true)
                             }}>
                             Log Out
                         </button>
@@ -28,6 +29,6 @@ export default function Navbar(){
                     <Login/>
                 }
             </div>
-        </nav>
+        </header>
     )
 }

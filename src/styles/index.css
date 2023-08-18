@@ -4,7 +4,7 @@
   --blue-100: #388ec7;
 }
 
-nav{
+header{
   display: flex;
   justify-content: space-between;
   align-items: center;
