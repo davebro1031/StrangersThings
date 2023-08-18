@@ -1,9 +1,7 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Search from "./Search";
 
 export default function Sidebar() {
-
-  const location = useLocation()
 
   return (
     <div id="side-bar">
@@ -12,7 +10,7 @@ export default function Sidebar() {
       <ul style={{ listStyle: "none" }}>
         {localStorage.getItem("user")?
         <li>
-          <Search location={location.pathname}/>
+          <Search/>
           <Link to="messages">My Messages</Link>
         </li>
         :
