@@ -9,13 +9,13 @@ export default function Navbar(){
     return (
         <header>
             <Link to="/">
-                <div id="nav-logo">Stranger's Things</div>
+                <div id="header-logo">Stranger's Things</div>
             </Link>
-            <div id="nav-content">
+            <div id="header-content">
                 {currentUser?
                     <>
                         <h3>{currentUser}</h3>
-                        <button type="submit" className="button-1" 
+                        <button className="button-1" 
                             onClick={()=>{
                                 localStorage.removeItem("token")
                                 localStorage.removeItem("user")
