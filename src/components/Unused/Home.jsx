@@ -1,5 +1,7 @@
+{/*
+
+
 import React, { useEffect } from "react";
-import Sidebar from "./Access/Sidebar";
 import Posts from "./Posts";
 import useApi from "../hooks/useApi";
 
@@ -31,3 +33,5 @@ function Home() {
 }
 
 export default Home;
+
+*/}
