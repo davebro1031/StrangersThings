@@ -2,7 +2,7 @@ import React from 'react'
 
 function UserPosts() {
   return (
-    <div>
+    <div className='content-block'>
       User Posts
     </div>
   )

@@ -10,7 +10,7 @@ import UserPosts from "./components/UserPosts";
 
 function App() {
 
-  const sidebarPathnames = ["/", "/messages"]
+  const sidebarPathnames = ["/", "/messages", "/userposts"]
   const [query, setQuery] = useState("")
   const location=useLocation()
 
