@@ -1,6 +1,6 @@
 import React from 'react'
 
-function UserPosts() {
+function UserPosts({query}) {
   return (
     <div className='content-block'>
       User Posts
