@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Search from "./Search";
 import { useLocation } from "react-router-dom";
 
-export default function Sidebar() {
+export default function Sidebar({query, setQuery}) {
 
   const location = useLocation()
 
@@ -10,7 +10,7 @@ export default function Sidebar() {
     <div id="sidebar">
       <ul id="sidebar-list">
 
-        <li><Search/></li>
+        <li><Search query={query} setQuery={setQuery}/></li>
 
         {!(location.pathname==="/")?<li><Link to="">All Listings</Link></li>:null}
         

@@ -8,6 +8,7 @@
     width:100vw;
     height: 100vh;
     background-color: rgba(0,0,0,0.3);
+    z-index: 2
 }
 
 .popup-inner{
@@ -24,4 +25,8 @@
 .fail{
     color: #8d0000;
     background-color: #ff8686;
+}
+
+.popup-neutral{
+    background-color: white;
 }
