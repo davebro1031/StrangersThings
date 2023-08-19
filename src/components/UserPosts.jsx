@@ -20,7 +20,14 @@ function UserPosts({query}) {
     const filteredItems = getFilteredItems(query, userPosts)
     
     const [trigger, setTrigger] = useState(false)
-    const [selectedPostId, setSelectedPostId] = useState(null)
+    const [selId, setSelId] = useState(null)
+    const [selTitle, setSelTitle] = useState(null)
+    const [selPrice, setSelPrice] = useState(null)
+    const [selDeliver, setSelDeliver] = useState(null)
+    const [selLocation, setSelLocation] = useState(null)
+    const [selDescription, setSelDesciption] = useState(null)
+    const [selCreated, setSelCreated] = useState(null)
+    const [selUpdated, setSelUpdated] = useState(null)
 
     useEffect(()=>{
         
@@ -45,9 +52,16 @@ function UserPosts({query}) {
         }
     };
 
-    function showDetails(id){
+    function showDetails(id, title, description, price, deliver, created, updated, location){
         setTrigger(true)
-        setSelectedPostId(id)
+        setSelId(id)
+        setSelTitle(title)
+        setSelDesciption(description)
+        setSelPrice(price)
+        setSelDeliver(deliver)
+        setSelCreated(created)
+        setSelUpdated(updated)
+        setSelLocation(location)
     }
 
 
@@ -64,7 +78,7 @@ function UserPosts({query}) {
                     {userPosts?
                     filteredItems.map((post)=>{
                         return(
-                            <tr className='listing' key={post._id} onClick={()=>showDetails(post._id)}>
+                            <tr className='listing' key={post._id} onClick={()=>showDetails(post._id, post.title, post.description, post.price, post.willDeliver, post.createdAt, post.updatedAt, post.location)}>
                                 <td>{post.title}</td>
                                 <td>${post.price}</td>
                             </tr>
@@ -75,23 +89,40 @@ function UserPosts({query}) {
                     }
                 </tbody>
             </table>
-            <PostDetails trigger={trigger} setTrigger={setTrigger} id={selectedPostId}/>
+            <PostDetails 
+                trigger={trigger} 
+                setTrigger={setTrigger} 
+                id={selId} 
+                title={selTitle} 
+                description={selDescription}
+                price={selPrice}
+                deliver={selDeliver}
+                created={selCreated}
+                updated={selUpdated}
+                location={selLocation}
+            />
         </div>
     )
 }
 
 export default UserPosts
 
-function PostDetails({trigger, setTrigger, id}){
+function PostDetails({trigger, setTrigger, id, title, description, price, deliver, created, updated, location}){
     return (
         trigger?
         <div className="popup" onClick={()=>setTrigger(false)}>
             {/* <Link to="">  WE CAN TURN THIS INTO A LINK TO THE FULL POST PAGE THAT HAS MESSAGING OPTIONS ETC.*/}
             <div className="popup-inner popup-neutral">
                 
-                {/* I think it makes sense to replace the "id" prop with all of post information - so lots of extra props like "name" "title" "price", etc.  */}
                 Popup with all the post details! 
-                {id}
+                {id}   .
+                {title}  . 
+                {description}   .
+                {price}   .
+                {deliver}   .
+                {created}   .
+                {updated}   .
+                {location}
             </div>
             {/* </Link> */}
 
