@@ -157,9 +157,17 @@ a{
 
 .post-popup{
   display: block;
-  text-decoration: none;
+  color: black;
 }
 
 .post-title{
   font-size: 1.8em;
+  margin:0 0 0.2em;
+  border-bottom: 2px solid black;
+}
+
+.time-stamp{
+  font-size: 0.7em;
+  color: gray;
+  display: flex;
 }
