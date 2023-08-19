@@ -8,7 +8,7 @@ function Search({query,setQuery}) {
     const location=useLocation()
     
     useEffect(()=>{
-        if(location.pathname==="/"){
+        if(location.pathname==="/" || location.pathname==="/userposts"){
             setSearchItems("posts")
         }else if(location.pathname==="/messages"){
             setSearchItems("messages")
