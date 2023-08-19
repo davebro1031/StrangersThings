@@ -79,7 +79,16 @@ function UserPosts({query}) {
                     {userPosts?
                     filteredItems.map((post)=>{
                         return(
-                            <tr className='listing' key={post._id} onClick={()=>showDetails(post._id, post.title, post.description, post.price, post.willDeliver, post.createdAt, post.updatedAt, post.location)}>
+                            <tr className='listing' 
+                            key={post._id} 
+                            onClick={()=>showDetails(post._id, 
+                                                    post.title, 
+                                                    post.description, 
+                                                    post.price, 
+                                                    post.willDeliver, 
+                                                    post.createdAt, 
+                                                    post.updatedAt, 
+                                                    post.location)}>
                                 <td>{post.title}</td>
                                 <td>${post.price}</td>
                             </tr>

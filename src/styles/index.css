@@ -154,3 +154,12 @@ a{
   color: var(--link-color);
   text-decoration: underline;
 }
+
+.post-popup{
+  display: block;
+  text-decoration: none;
+}
+
+.post-title{
+  font-size: 1.8em;
+}
