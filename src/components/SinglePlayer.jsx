@@ -4,13 +4,16 @@ const Base_URL = '2308-FTB-MT-WEB-PT'
 const full_url = `https://strangers-things.herokuapp.com/api/${Base_URL}/posts`
 
 
-export default function Posts() {
+
+
+
+export default async function SinglePlayer(){
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        async function getPosts() {
+        async function GetSingle() {
             try {
-                const response = await fetch(full_url)
+                const response = await fetch(`${full_url}/${_id}`)
                 const result = await response.json();
                 console.log(result)
                 setPosts(result.data.posts)
@@ -20,7 +23,7 @@ export default function Posts() {
                 console.error(err);
             }
         }
-        getPosts()
+        GetSingle()
     }
         , [])
     return (
@@ -41,7 +44,6 @@ export default function Posts() {
                                 <td>Message:{post.message}</td>
 
                                 <td>Created At: {post.createdAt}</td>
-                                <td><Link to="single-details">Details</Link></td>
 
 
 

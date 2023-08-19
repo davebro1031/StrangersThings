@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import LoginPage from "./components/LoginPage/LoginPage";
 import MessageSender from "./components/Messaging/MessageSender";
 import Posts from "./components/Posts"
+import SinglePlayer from "./components/SinglePlayer";
 
 function App() {
   return (
@@ -17,8 +18,9 @@ function App() {
           <Route path="/newuser" element={<NewUser />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="messages" element={<MessageSender />} />
-          <Route path="*" element={<h2>Route not found</h2>} />
           <Route path="posts" element={<Posts/>}/>
+          <Route path="*" element={<h2>Route not found</h2>} />
+          <Route path="single-details" element={<SinglePlayer/>}/>
         </Routes>
       </div>
     </>
