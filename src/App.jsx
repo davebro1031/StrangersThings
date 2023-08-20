@@ -16,6 +16,7 @@ function App() {
   return (
     <>
       <Header />
+      <navLink> </navLink>
       <div id="content">
         {sidebarPathnames.includes(location.pathname)?<Sidebar query={query} setQuery={setQuery}/>:null}
         <Routes>
