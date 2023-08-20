@@ -22,9 +22,11 @@ function App() {
   return (
     <>
       <Header />
-      <navLink> <div>
+      <navLink>
+      <div>
       <Navbar />
-    </div></navLink>
+    </div>
+     </navLink>
       <div id="content">
         {sidebarPathnames.includes(location.pathname)?<Sidebar query={query} setQuery={setQuery}/>:null}
         <Routes>
@@ -41,5 +43,4 @@ function App() {
     </>
   );
 }
-
 export default App;
