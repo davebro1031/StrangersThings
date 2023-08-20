@@ -194,15 +194,15 @@ a {
   background-color: #3700ff;
 }
 
-.contianer {
+.container {
   display: grid;
   grid-template-rows: 50px 1fr 50px;
 }
-.header {
-}
+/* .header {
+} */
 .content-container {
   display: grid;
   grid-template-columns: 200px 1fr;
 }
-.footer {
-}
+/* .footer {
+} */

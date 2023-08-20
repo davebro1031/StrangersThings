@@ -15,7 +15,7 @@ function App() {
 
   return (
     <>
-      <div className="contianer">
+      <div className="container">
         <div className="header">
           <Header />
         </div>
