@@ -31,6 +31,11 @@ export default function Sidebar({ query, setQuery }) {
                   <Link to="userposts">My Posts</Link>
                 </li>
               ) : null}
+              {!(location.pathname === "/postcreator") ? (
+                <li>
+                  <Link to="postcreator">Create New Post</Link>
+                </li>
+              ) : null}
             </>
           ) : null}
         </ul>

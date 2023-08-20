@@ -8,9 +8,10 @@ import Posts from "./components/Posts";
 import Sidebar from "./components/Access/Sidebar";
 import UserPosts from "./components/UserPosts/UserPosts";
 import Selling from "./components/Selling/Selling";
+import NewSelling from "./components/Selling/NewSelling";
 
 function App() {
-  const sidebarPathnames = ["/", "/messages", "/userposts"];
+  const sidebarPathnames = ["/", "/messages", "/userposts", "/postcreator"];
   const [query, setQuery] = useState("");
   const location = useLocation();
 
@@ -34,6 +35,7 @@ function App() {
               <Route path="messages" element={<Messages query={query} />} />
               {/* <Route path="userposts" element={<UserPosts query={query} />} /> */}
               <Route path="userposts" element={<Selling />} />
+              <Route path="postcreator" element={<NewSelling />} />
               <Route path="posts" element={<Posts />} />
               <Route path="*" element={<h2>Route not found</h2>} />
             </Routes>
