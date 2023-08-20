@@ -8,6 +8,16 @@ import Posts from "./components/Posts";
 import Sidebar from "./components/Access/Sidebar";
 import UserPosts from "./components/UserPosts/UserPosts";
 import MakePost from "./components/Posts/MakePost";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "./Navigation/Navbar.js";
+
+function App() {
+  return (
+    <div>
+      <Navbar />
+    </div>
+  );
+}
 
 function App() {
 
