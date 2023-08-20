@@ -11,13 +11,7 @@ import MakePost from "./components/Posts/MakePost";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./Navigation/Navbar.js";
 
-function Navbar() {
-  return (
-    <div>
-      <Navbar />
-    </div>
-  );
-}
+
 
 function App() {
 
@@ -28,7 +22,9 @@ function App() {
   return (
     <>
       <Header />
-      <navLink> </navLink>
+      <navLink> <div>
+      <Navbar />
+    </div></navLink>
       <div id="content">
         {sidebarPathnames.includes(location.pathname)?<Sidebar query={query} setQuery={setQuery}/>:null}
         <Routes>
