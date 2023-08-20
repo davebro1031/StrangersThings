@@ -53,24 +53,30 @@ const SellingTableItem = (props) => {
             </div>
           </div>
 
-          <div className="card-actions">
-            <button
-              onClick={() => {
-                props.onDelete(props);
-              }}
-              aria-label="Delete"
-            >
-              Delete
-            </button>
-            <button
-              onClick={() => {
-                props.onEdit(props);
-              }}
-              aria-label="Edit"
-            >
-              Edit
-            </button>
-          </div>
+          {props.active ? (
+            <div className="card-actions">
+              <button
+                onClick={() => {
+                  props.onDelete(props);
+                }}
+                aria-label="Delete"
+              >
+                Inactivate
+              </button>
+              <button
+                onClick={() => {
+                  props.onEdit(props);
+                }}
+                aria-label="Edit"
+              >
+                Edit
+              </button>
+            </div>
+          ) : (
+            <p style={{ color: "red" }}>
+              This post is inactive therefore it can not be edited
+            </p>
+          )}
         </div>
       </div>
       <div className="card-footer"></div>
