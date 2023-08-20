@@ -1,5 +1,5 @@
-import {useState} from "react"
-import {Link} from "react-router-dom"
+import {useState, useEffect} from "react"
+import {Link, useLocation} from "react-router-dom"
 import LoginPopup from "./LoginPopup"
 
 const BASE_URL = `${import.meta.env.VITE_STRANGERS_THINGS_BASE_API}`
@@ -13,10 +13,26 @@ export default function LoginPage(){
     const [message, setMessage] = useState("")
     const [messageType, setMessageType] = useState("")
     const [path, setPath] = useState("")
+    const [fire, setFire] = useState(false)
 
-    async function loginUser(event){
+    const location = useLocation()
+
+    useEffect(()=>{
+      if(location.state){
+        setUsername(location.state.username)
+        setPassword(location.state.password)
+        setFire(true)
+      }
+    },[])
+
+    useEffect(()=>{
+      if(fire){
+        loginUser()
+      }
+    },[fire])
+
+    async function loginUser(){
         try {
-            event.preventDefault();
             const response = await fetch(`${BASE_URL}/users/login`, {
               method: "POST",
               headers: {
@@ -40,7 +56,9 @@ export default function LoginPage(){
               setMessage("Login Successful!")
               setMessageType("success")
               setPath("/")
+
             }else if(result.error.name==="InvalidCredentials"){
+              console.log(username)
               setMessage("Username and password do not match")
               setMessageType("fail")
               setPath("/login")
@@ -55,14 +73,14 @@ export default function LoginPage(){
     
     <div className="form-container">
         <h2>Login to Stranger's Things</h2>
-        <form className="form" onSubmit={(event)=>loginUser(event)}>
+        <form className="form" onSubmit={(event)=>{event.preventDefault();loginUser()}}>
 
             <div>
-                <input required className="login-input" type="text" id="username" name = "username" placeholder="username" value ={username} onChange={(event)=>setUsername(event.target.value)} />
+                <input required className="login-input" type="text" name = "username" placeholder="username" value ={username} onChange={(event)=>setUsername(event.target.value)} />
             </div>
 
             <div>
-                <input required className="login-input" type="password" id="password" name="password" placeholder="password" value ={password} onChange={(event)=>setPassword(event.target.value)} />
+                <input required className="login-input" type="password" name="password" placeholder="password" value ={password} onChange={(event)=>setPassword(event.target.value)} />
             </div>
 
             <input className = "button-1" type="submit" value="Log In" />
