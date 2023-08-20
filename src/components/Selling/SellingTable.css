@@ -1,0 +1,91 @@
+:root {
+  --font-bold: 800;
+  --font-label-size: 1em;
+}
+.cards {
+  width: 80vw;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 1em;
+  border: 0.1em #eee solid;
+  margin: 1em 0;
+  border-radius: 1em;
+  box-shadow: 5px 5px 10px #ddd;
+}
+.card-header {
+  padding: 0.6em 0.4em;
+}
+.card-main {
+  display: flex;
+  flex-direction: row;
+}
+.card-image {
+  width: 20em;
+  height: 20em;
+  padding: 0 0.4em 0.4em 0.4em;
+}
+.card-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 1em;
+}
+.card-content {
+  display: flex;
+  flex-direction: column;
+}
+.card-description {
+  height: 18em;
+}
+.description-group {
+  padding: 0.2em 0;
+}
+.description-group label {
+  font-weight: var(--font-bold);
+  font-size: var(--font-label-size);
+}
+.description-group p {
+  margin: 0;
+  padding: 0;
+}
+.card-actions button {
+  margin: 0 0.4em;
+  color: #fff;
+  border: none;
+  padding: 0.6em;
+  width: 8em;
+  border-radius: 0.3em;
+  background-color: var(--link-color);
+}
+.card-actions button:hover {
+  background-color: var(--link-color-hover);
+  cursor: pointer;
+}
+.item-title {
+  padding: 0;
+  margin: 0;
+}
+.item-active {
+  color: green;
+}
+.item-inactive {
+  color: red;
+}
+.selling-form {
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+.input-group label {
+}
+.input-group input {
+  width: 100%;
+  padding: 1em;
+  border-radius: 0.3em;
+}
