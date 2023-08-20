@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Dialog from "./Dialog/Dialog";
+import MessageForm from "./Messaging/MessageForm";
 
 const Base_URL = "2305-FTB-MT-WEB-PT";
 const full_url = `https://strangers-things.herokuapp.com/api/${Base_URL}/posts`;
@@ -18,13 +20,14 @@ const getFilteredItems = (query, items) => {
 
 export default function Posts({ query }) {
   const [posts, setPosts] = useState([]);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   useEffect(() => {
     async function getPosts() {
       try {
         const response = await fetch(full_url);
         const result = await response.json();
-        // console.log(result)
+        console.log(result.data.post);
         setPosts(result.data.posts);
         return result;
       } catch (err) {
@@ -36,7 +39,45 @@ export default function Posts({ query }) {
 
   const filteredItems = getFilteredItems(query, posts);
   const [trigger, setTrigger] = useState(false);
-  const [postId, setPostId] = useState(null);
+  const [postId, setPostId] = useState({});
+  const [postObject, setPostObject] = useState({});
+
+  //#region Send a Message
+  const [selectedPost, setSelectedPost] = useState(null);
+  const [messageValue, setMessageValue] = useState("");
+  const postMessage = async (id, message) => {
+    try {
+      const response = await fetch(
+        `${
+          import.meta.env.VITE_STRANGERS_THINGS_BASE_API
+        }/posts/${id}/messages`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify({
+            message: {
+              content: message,
+            },
+          }),
+        }
+      );
+      const result = await response.json();
+      console.log(result);
+      return result;
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  const messageSubmit = (e) => {
+    console.log(messageValue);
+    postMessage(selectedPost._id, messageValue);
+    setDialogOpen(false);
+    setMessageValue("");
+  };
+  //#endregion
 
   function showDetails(id) {
     setTrigger(true);
@@ -51,6 +92,7 @@ export default function Posts({ query }) {
           <tr>
             <th>User</th>
             <th>Listing</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
@@ -59,22 +101,37 @@ export default function Posts({ query }) {
             filteredItems.map((post) => {
               return (
                 // Added a "listing" styling so that each listing appears as a link when hovering over it
-                <tr
-                  className="listing"
-                  key={post._id}
-                  onClick={() => showDetails(post._id)}
-                >
-                  <td>{post.author.username}</td>
-                  <td>{post.title}</td>
-
-                  {/* <td>Description: {post.description}</td>
+                post.active && (
+                  <tr className="listing" key={post._id}>
+                    <td onClick={() => showDetails(post._id)}>
+                      {post.author.username}
+                    </td>
+                    <td onClick={() => showDetails(post._id)}>{post.title}</td>
+                    <td onClick={() => showDetails(post._id)}>
+                      {post.active ? "Availible" : "Not Availible"}
+                    </td>
+                    <td>
+                      {localStorage.getItem("user") !== null && (
+                        <button
+                          className="button-1"
+                          onClick={() => {
+                            setSelectedPost(post);
+                            setDialogOpen(true);
+                          }}
+                        >
+                          Send Message
+                        </button>
+                      )}{" "}
+                    </td>
+                    {/* <td>Description: {post.description}</td>
                                 <td>Price: {post.price}</td>
                                 <td>location: {post.location}</td>
                                 <td>Will Deliver:{post.willDeliver}</td>
                                 <td>Message:{post.message}</td>
 
                                 <td>Created At: {post.createdAt}</td> */}
-                </tr>
+                  </tr>
+                )
               );
             })
           }
@@ -82,6 +139,22 @@ export default function Posts({ query }) {
       </table>
       {/* This is a popup component that is triggered when you click on a listing */}
       <PostDetails trigger={trigger} setTrigger={setTrigger} id={postId} />
+      <Dialog
+        open={dialogOpen}
+        onClose={() => {
+          setDialogOpen(false);
+        }}
+      >
+        <p>
+          {selectedPost &&
+            `Send a message to ${selectedPost.author.username} about ${selectedPost.title}`}{" "}
+        </p>
+        <MessageForm
+          value={messageValue}
+          setMessageValue={setMessageValue}
+          onSubmit={messageSubmit}
+        />
+      </Dialog>
     </>
   );
 }

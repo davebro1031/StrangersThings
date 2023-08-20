@@ -33,8 +33,8 @@ const Messages = ({}) => {
         <thead>
           <tr>
             <th>User</th>
-            <th>Message</th>
             <th>Item</th>
+            <th>Message</th>
           </tr>
         </thead>
         <tbody>
@@ -51,7 +51,9 @@ const Messages = ({}) => {
             })}
         </tbody>
       </table>
-      {messages.messages && <p>No messages</p>}
+      {/* {(messages.messages || messages.messages.length === 0) && (
+        <p>No messages</p>
+      )} */}
     </>
   );
 };
