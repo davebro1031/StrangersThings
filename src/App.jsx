@@ -18,7 +18,7 @@ function App() {
   const sidebarPathnames = ["/", "/messages", "/userposts"]
   const [query, setQuery] = useState("")
   const location=useLocation()
-
+  
   return (
     <>
       <Header />

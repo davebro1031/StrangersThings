@@ -1,4 +1,5 @@
 import React from "react";
+import App from "../../../App";
 
 const Navbar = () => {
     return (<nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -70,4 +71,4 @@ const Navbar = () => {
   </nav>
 );
 };
-export default Navbar
+export default App
