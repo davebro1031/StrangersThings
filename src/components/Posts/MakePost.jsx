@@ -5,7 +5,7 @@ const full_url = `https://strangers-things.herokuapp.com/api/${Base_URL}/posts`
 export default async function MakePosts (){
 
     try{
-        const response = await fetch ( `${full_url}/posts`,{
+        const response = await fetch ( `${full_url}`,{
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json',

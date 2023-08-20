@@ -1,0 +1,27 @@
+.popup{
+    position: fixed;
+    top:0;
+    left:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.popup-inner{
+    padding: 0.7em;
+    border-radius:1em;
+    font-size: 1.2em
+}
+
+.success{
+    color: #005d00;
+    background-color: #9bff85;
+}
+
+.fail{
+    color: #8d0000;
+    background-color: #ff8686;
+}
