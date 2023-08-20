@@ -15,7 +15,7 @@ export const Selling = () => {
         }
       );
       const result = await response.json();
-      setMySellingPosts(result.data.posts);
+      setMySellingPosts(result.data);
     } catch (err) {
       console.error(err);
     }
@@ -29,12 +29,12 @@ export const Selling = () => {
 
   return (
     <>
-      {mySellingPosts != null && mySellingPosts.length ? (
+      {console.log(mySellingPosts)}
+      {mySellingPosts ? (
         <SellingTable {...mySellingPosts} />
       ) : (
         "You are not selling anything"
       )}
-      ;
     </>
   );
 };

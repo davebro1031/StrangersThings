@@ -1,3 +1,4 @@
+/** The delete */
 import React, { useState } from "react";
 import "./SellingTable.css";
 // import { MyData } from "../../data/TestData";
@@ -6,7 +7,7 @@ import Dialog from "../Dialog/Dialog";
 import SellingForm from "./SellingForm";
 
 const SellingTable = (props) => {
-  console.log(props);
+  const [itemsSelling, setItemsSelling] = useState(props);
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [editorOpen, setEditorOpen] = useState(false);
   const [postObject, setPostObject] = useState({});
@@ -19,7 +20,7 @@ const SellingTable = (props) => {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.get("token")}`,
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         }
       );
@@ -30,12 +31,10 @@ const SellingTable = (props) => {
       console.error(err);
     }
   };
-  const editSelectedItem = async (updateObject) => {
+  const editSelectedItem = async (id, updateObject) => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_STRANGERS_THINGS_BASE_API}/posts/${
-          updateObject._id
-        }`,
+        `${import.meta.env.VITE_STRANGERS_THINGS_BASE_API}/posts/${id}`,
         {
           method: "PATCH",
           headers: {
@@ -72,7 +71,10 @@ const SellingTable = (props) => {
   };
   const editHandler = async (editObject) => {
     //show for editing dialog
-    const editStatus = await editSelectedItem(createUpdateObject(editObject));
+    const editStatus = await editSelectedItem(
+      editObject._id,
+      createUpdateObject(editObject)
+    );
     //if true show updated toast and update post list
     console.log(editStatus, "editStatus");
   };
@@ -89,8 +91,7 @@ const SellingTable = (props) => {
   return (
     <>
       <div className="cards">
-        {props != null &&
-          props.length &&
+        {props.posts &&
           props.posts.map((sellingItem) => {
             return (
               <SellingTableItem
@@ -115,7 +116,10 @@ const SellingTable = (props) => {
         onClose={handleDialogClose}
       >
         <div className="dialog-container">
-          Are you sure you want to delete post id {postObject._id} ?
+          <p>
+            Are you sure you want to make post <b>{postObject.title}</b>{" "}
+            inactive?
+          </p>
           <div className="dialog-actions">
             <button
               onClick={() => {
