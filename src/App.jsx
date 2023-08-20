@@ -9,7 +9,7 @@ import Sidebar from "./components/Access/Sidebar";
 import UserPosts from "./components/UserPosts/UserPosts";
 import MakePost from "./components/Posts/MakePost";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from ".components/Navigation/Navbar.js";
+import Navbar from ".components/Navigation/Navbar";
 
 
 
