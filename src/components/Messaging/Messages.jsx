@@ -29,7 +29,7 @@ const Messages = ({}) => {
   }, []);
   return (
     <>
-      <table className="messages-table content-block">
+      <table className="messages-table">
         <thead>
           <tr>
             <th>User</th>
