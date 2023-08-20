@@ -11,7 +11,7 @@ import MakePost from "./components/Posts/MakePost";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./Navigation/Navbar.js";
 
-function App() {
+function Navbar() {
   return (
     <div>
       <Navbar />
