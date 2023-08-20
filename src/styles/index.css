@@ -2,26 +2,52 @@
   --link-color: #3700ff;
   --blue-600: #0079c9;
   --blue-100: #388ec7;
+  --header-height: 50px;
+  --sidebar-width: 200px;
 }
 
-nav{
+*>{
+  margin: 0;
+  padding: 0;
+}
+
+header{
+  position: fixed;
+  width: 100%;
+  top:0;
+  right:0;
+  z-index:1;
+  background-color: #dbe0f9;
+  height: var(--header-height);
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 3px solid black;
+  box-sizing: border-box;
 }
 
-#nav-logo{
+#content{
+  position: absolute;
+  top: var(--header-height);
+  left:0
+}
+
+#header-logo{
   font-size: 2.5em;
 }
 
-#nav-content{
+#header-content{
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-#nav-login-form>*{
+#header-content>*{
+  margin:0.2em
+}
+
+#header-login-form>*{
   margin: 0.2em;
 }
 
@@ -30,11 +56,11 @@ nav{
   /* put more styling */
 }
 
-.nav-input{
+.header-input{
   width: 120px;
 }
 
-#nav-login-link{
+#header-login-link{
   height: 1.8em;
   display: flex;
   flex-direction: column;
@@ -49,7 +75,8 @@ nav{
   border: 1px solid gray;
   border-radius: 0.3em;
   height: 2em;
-  width: max-content
+  width: max-content;
+  cursor: pointer
 }
 
 a{
@@ -57,30 +84,48 @@ a{
   color: var(--link-color)
 }
 
-@media (min-width:800px){
+@media (min-width:850px){
 
-  #nav-login-link{
+  #header-login-link{
     display: none;
   }
 
 }
 
-@media (max-width:800px){
-  #nav-login-form, #nav-new-user{
+@media (max-width:850px){
+  #header-login-form, #header-new-user{
     display: none;
   }
 
 }
 
-#home{
-  display: grid;
-  grid-template-columns: 200px 1fr;
-}
+#sidebar{
+  z-index:1;
+  position: fixed;
 
-#side-bar{
-  border: 1px solid black;
-  min-height: 100vh;
+  width: var(--sidebar-width);
+  height: calc(100vh - var(--header-height));
+
+  background-color: white;
+  border-right: 2px solid black;
   box-sizing: border-box;
+}
+
+#sidebar-list{
+  margin:0;
+  padding:0.5em 0 0;
+  list-style: none;
+}
+
+#sidebar-list>li{
+  padding: 0.5em 0;
+  text-align: center;
+}
+
+.content-block {
+  width: calc(100vw - var(--sidebar-width));
+  left: var(--sidebar-width);
+  position: relative;
 }
 
 .form-container{
@@ -102,4 +147,27 @@ a{
 .input-error{
   font-size: 0.7em;
   color: red;
+}
+
+.listing:hover{
+  cursor: pointer;
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+.post-popup{
+  display: block;
+  color: black;
+}
+
+.post-title{
+  font-size: 1.8em;
+  margin:0 0 0.2em;
+  border-bottom: 2px solid black;
+}
+
+.time-stamp{
+  font-size: 0.7em;
+  color: gray;
+  display: flex;
 }
