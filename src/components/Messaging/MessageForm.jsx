@@ -1,9 +1,10 @@
 import React from "react";
 
-function MessageForm({ value, name, id, onSubmit }) {
+function MessageForm({ value, name, id, onSubmit, setMessageValue }) {
   const SubmitHandler = (submitEvent) => {
     submitEvent.preventDefault();
     onSubmit(submitEvent);
+    setMessageValue(submitEvent);
   };
   return (
     <>
@@ -16,6 +17,9 @@ function MessageForm({ value, name, id, onSubmit }) {
             value={value}
             name={name}
             id={id}
+            onChange={(e) => {
+              setMessageValue(e.target.value);
+            }}
           />
         </div>
         <div className="button-group">
