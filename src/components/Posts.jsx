@@ -111,25 +111,20 @@ export default function Posts({ query }) {
                       {post.active ? "Availible" : "Not Availible"}
                     </td>
                     <td>
-                      {localStorage.getItem("user") !== null && (
-                        <button
-                          className="button-1"
-                          onClick={() => {
-                            setSelectedPost(post);
-                            setDialogOpen(true);
-                          }}
-                        >
-                          Send Message
-                        </button>
-                      )}{" "}
+                      {localStorage.getItem("user") !== null &&
+                        localStorage.getItem("user") !==
+                          post.author.username && (
+                          <button
+                            className="button-1"
+                            onClick={() => {
+                              setSelectedPost(post);
+                              setDialogOpen(true);
+                            }}
+                          >
+                            Send Message
+                          </button>
+                        )}{" "}
                     </td>
-                    {/* <td>Description: {post.description}</td>
-                                <td>Price: {post.price}</td>
-                                <td>location: {post.location}</td>
-                                <td>Will Deliver:{post.willDeliver}</td>
-                                <td>Message:{post.message}</td>
-
-                                <td>Created At: {post.createdAt}</td> */}
                   </tr>
                 )
               );
