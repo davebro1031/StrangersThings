@@ -1,5 +1,7 @@
 import React from "react";
-
+import Hamburger from "./Hamburger";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 export default function Navbar(){
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
 
@@ -10,9 +12,15 @@ export default function Navbar(){
     <div>
       <div className="navigation">
         <ul>
-          <link>Home</link>
-          <link>My listings</link>
-          <link>My messages</link>
+          <li>
+          <Link to ="/">Home</Link>
+          </li>
+          <li>
+          <Link to ="userposts">My listings</Link>
+          </li>
+          <li>
+            <Link to ="messages">My messages</Link>
+          </li>
         </ul>
         <div className="hamburger" onClick={toggleHamburger}>
           <Hamburger isOpen={hamburgerOpen}/>
