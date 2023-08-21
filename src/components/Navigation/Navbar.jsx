@@ -3,7 +3,7 @@ import React from "react";
 export default function Navbar() {
   return (<nav className="navbar navbar-expand-lg navbar-light bg-light">
     <a className="navbar-brand" href="NavBar">
-      Navbar
+      NavBar
     </a>
     <button
       className="navbar-toggler"
@@ -54,14 +54,14 @@ export default function Navbar() {
             className="dropdown-menu"
             aria-labelledby="navbarDropdownMenuLink"
           >
-            <a className="dropdown-item" href="Messages">
-              Welcome to messages
+            <a className="dropdown-item" href="Drop down Messages">
+             
             </a>
-            <a className="dropdown-item" href="My Posts">
-              Here are the Posts you've created
+            <a className="dropdown-item" href="Drop down My Posts">
+              
             </a>
-            <a className="dropdown-item" href="All Listings">
-              These are all available listings
+            <a className="dropdown-item" href="Drop down All Listings">
+            
             </a>
           </div>
         </li>
