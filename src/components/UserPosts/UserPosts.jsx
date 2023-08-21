@@ -17,6 +17,10 @@ function UserPosts({query}) {
         )
     };
 
+    const filterUserPosts = (user, items) => {
+        return items.filter((post) => post.author.username===user)
+    };
+
     const [userPosts, setUserPosts] = useState([]);
     const filteredItems = getFilteredItems(query, userPosts)
     
@@ -38,7 +42,7 @@ function UserPosts({query}) {
     
     async function getPosts() {
         try {
-            const response = await fetch(`${BASE_URL}/users/me`,
+            const response = await fetch(`${BASE_URL}/posts`,
                 {
                     headers: {
                         "Content-Type": "application/json",
@@ -47,8 +51,7 @@ function UserPosts({query}) {
                 }
             );
             const result = await response.json();
-            setUserPosts(result.data.posts)
-        } catch (err) {
+            setUserPosts(filterUserPosts(localStorage.getItem("user"),result.data.posts.reverse()))        } catch (err) {
             console.error(err);
         }
     };
