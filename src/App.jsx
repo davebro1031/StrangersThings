@@ -9,6 +9,7 @@ import Sidebar from "./components/Access/Sidebar";
 import UserPosts from "./components/UserPosts/UserPosts";
 import MakePost from "./components/Posts/MakePost";
 import Navbar from "./components/Navigation/Navbar";
+import Hamburger from "./components/Hamburger/Hamburger";
 
 
 

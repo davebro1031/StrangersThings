@@ -1,6 +1,6 @@
 import React from "react";
-import Hamburger from "./Hamburger/Hamburger";
-export default function Nav(){
+
+export default function Navbar(){
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
 
   const toggleHamburger = () =>{
@@ -26,5 +26,5 @@ export default function Nav(){
 }
 
 
-  
+
 
