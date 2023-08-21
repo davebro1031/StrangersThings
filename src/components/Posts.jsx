@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Dialog from "./Dialog/Dialog";
 import MessageForm from "./Messaging/MessageForm";
+import SelectedUserPostPopup from "./UserPosts/SelectedUserPostPopup";
 
 const Base_URL = "2305-FTB-MT-WEB-PT";
 const full_url = `https://strangers-things.herokuapp.com/api/${Base_URL}/posts`;
@@ -39,7 +40,6 @@ export default function Posts({ query }) {
 
   const filteredItems = getFilteredItems(query, posts);
   const [trigger, setTrigger] = useState(false);
-  const [postId, setPostId] = useState({});
   const [postObject, setPostObject] = useState({});
 
   //#region Send a Message
@@ -79,9 +79,9 @@ export default function Posts({ query }) {
   };
   //#endregion
 
-  function showDetails(id) {
+  function showDetails(post) {
     setTrigger(true);
-    setPostId(id);
+    setPostObject(post);
   }
 
   return (
@@ -103,11 +103,11 @@ export default function Posts({ query }) {
                 // Added a "listing" styling so that each listing appears as a link when hovering over it
                 post.active && (
                   <tr className="listing" key={post._id}>
-                    <td onClick={() => showDetails(post._id)}>
+                    <td onClick={() => showDetails(post)}>
                       {post.author.username}
                     </td>
-                    <td onClick={() => showDetails(post._id)}>{post.title}</td>
-                    <td onClick={() => showDetails(post._id)}>
+                    <td onClick={() => showDetails(post)}>{post.title}</td>
+                    <td onClick={() => showDetails(post)}>
                       {post.active ? "Availible" : "Not Availible"}
                     </td>
                     <td>
@@ -138,7 +138,7 @@ export default function Posts({ query }) {
         </tbody>
       </table>
       {/* This is a popup component that is triggered when you click on a listing */}
-      <PostDetails trigger={trigger} setTrigger={setTrigger} id={postId} />
+      <PostDetails trigger={trigger} setTrigger={setTrigger} {...postObject} />
       <Dialog
         open={dialogOpen}
         onClose={() => {
@@ -159,16 +159,21 @@ export default function Posts({ query }) {
   );
 }
 
-function PostDetails({ trigger, setTrigger, id }) {
-  return trigger ? (
-    <div className="popup" onClick={() => setTrigger(false)}>
-      {/* <Link to="">  WE CAN TURN THIS INTO A LINK TO THE FULL POST PAGE THAT HAS MESSAGING OPTIONS ETC.*/}
-      <div className="popup-inner popup-neutral">
-        {/* I think it makes sense to replace the "id" prop with all of post information - so lots of extra props like "name" "title" "price", etc.  */}
-        Popup with all the post details!
-        {id}
-      </div>
-      {/* </Link> */}
-    </div>
-  ) : null;
+function PostDetails(props) {
+  return (
+    props.trigger && (
+      <SelectedUserPostPopup
+        trigger={props.trigger}
+        setTrigger={props.setTrigger}
+        id={props._id}
+        title={props.title}
+        description={props.description}
+        price={props.price}
+        deliver={props.willDeliver}
+        created={props.createdAt}
+        updated={props.updatedAt}
+        location={props.location}
+      />
+    )
+  );
 }
