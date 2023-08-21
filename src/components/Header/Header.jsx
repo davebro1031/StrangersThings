@@ -5,6 +5,10 @@ export default function Navbar() {
   const currentUser = localStorage.getItem("user");
   const navigate = useNavigate();
 
+  function capitalizeFirstLetter(str){
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
   return (
     <header>
       <Link to="/">
@@ -13,7 +17,7 @@ export default function Navbar() {
       <div id="header-content">
         {currentUser ? (
           <>
-            <h3>{currentUser}</h3>
+            <h3>Hello, {capitalizeFirstLetter(currentUser)}</h3>
             <button
               className="button-1"
               onClick={() => {

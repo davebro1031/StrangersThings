@@ -32,11 +32,16 @@ export default function Sidebar({ query, setQuery }) {
                   <Link to="userposts">My Posts</Link>
                 </li>
               ) : null}
-              {!(location.pathname=== "/makeposts")? (
+              {!(location.pathname === "/makeposts") ? (
                 <li>
-                  <Link to="makeposts">Create Post</Link>
+                  <Link to="makeposts">Create New Post</Link>
                 </li>
-              ): null}
+              ) : null}
+              {!(location.pathname === "/postcreator") ? (
+                <li>
+                  <Link to="postcreator">Create New Post(working example)</Link>
+                </li>
+              ) : null}
             </>
           ) : null}
         </ul>

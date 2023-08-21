@@ -8,9 +8,14 @@ import Posts from "./components/Posts";
 import Sidebar from "./components/Access/Sidebar";
 import UserPosts from "./components/UserPosts/UserPosts";
 import MakePost from "./components/Posts/MakePost";
+import Navbar from "./components/Navigation/Navbar";
+import Selling from "./components/Selling/Selling";
+import NewSelling from "./components/Selling/NewSelling";
 import Login from "./components/Login";
 
+
 function App() {
+
   const sidebarPathnames = ["/", "/messages", "/userposts"]
   const [query, setQuery] = useState("")
   const location=useLocation()
@@ -27,9 +32,17 @@ function App() {
 
   return (
     <>
+      <div className="contianer">
+        <div className="header">
       <Header />
-      <div id="content">
-        {sidebarPathnames.includes(location.pathname)?<Sidebar query={query} setQuery={setQuery}/>:null}
+      </div>
+      <div className="content-container">
+        <aside>
+        {sidebarPathnames.includes(location.pathname) ? (
+              <Sidebar query={query} setQuery={setQuery} />
+            ) : null}
+        </aside>
+          <main>
         <Routes>
           <Route path="" element={<Posts query={query}/>} />
           <Route path="newuser" element={<NewUser/>} />
@@ -37,13 +50,21 @@ function App() {
           <Route path="messages" element={<Messages query={query}/>} />
           <Route path="userposts" element={<UserPosts query={query}/>} />
           <Route path="*" element={<h2>Route not found</h2>} />
-          <Route path="makeposts" element={<MakePost token={token} query={query}/>}/>
+          <Route path="makeposts" element={<MakePost/>}/>
           {/* <Route path="posts" element={<Posts />} /> */}
         </Routes>
         <Login setToken={setToken}/>
+        </main>
+        </div>
+        <div className="footer">
+          <footer>footer</footer>
+        </div>
       </div>
+      <div>
+        <Navbar />
+      </div>
+
     </>
   );
 }
-
 export default App;
