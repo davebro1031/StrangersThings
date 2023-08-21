@@ -24,17 +24,17 @@ export default function Navbar() {
             Home <span className="sr-only">(current)</span>
           </a>
         </li>
-        <li className="nav-item">
+        <li className="Messages">
           <a className="nav-link" href="Messages">
             Messages
           </a>
         </li>
-        <li className="nav-item">
+        <li className="my Posts">
           <a className="nav-link" href="My Posts">
             My Posts
           </a>
         </li>
-        <li className="nav-item">
+        <li className="All Listings">
           <a className="nav-link" href="All Listings">
             All Listings
           </a>
