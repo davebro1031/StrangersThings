@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import SellingForm from "./SellingForm";
 
 function NewSelling() {
   const [postObject, setPostObject] = useState({});
+  const navigate = useNavigate();
   const createItem = async (updateObject) => {
     try {
       const response = await fetch(
@@ -38,29 +40,28 @@ function NewSelling() {
     //show for editing dialog
     const editStatus = await createItem(createUpdateObject(createObject));
     //if true show updated toast and update post list
-    console.log(editStatus, "editStatus");
+    setPostObject({});
+    editStatus.success ? navigate("/userposts") : editStatus.error;
   };
   const submitHandler = (e) => {
     e.preventDefault();
     createHandler(postObject);
   };
   return (
-    <>
-      <h2>Create a New Posting</h2>
-      <div style={{ width: "30em", marginLeft: "1em" }}>
-        <SellingForm
-          id="postEditorForm"
-          {...postObject}
-          setPostObject={setPostObject}
-          handleSubmit={submitHandler}
-        />
-        <div className="dialog-actions">
-          <button type="submit" form="postEditorForm" onClick={() => {}}>
-            Save
-          </button>
-        </div>
+    <div style={{ width: "30em", marginLeft: "1em" }}>
+      <h2>Create New Posting</h2>
+      <SellingForm
+        id="postEditorForm"
+        {...postObject}
+        setPostObject={setPostObject}
+        handleSubmit={submitHandler}
+      />
+      <div className="dialog-actions">
+        <button type="submit" form="postEditorForm" onClick={() => {}}>
+          Save
+        </button>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -11,6 +11,7 @@ const SellingTable = (props) => {
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [editorOpen, setEditorOpen] = useState(false);
   const [postObject, setPostObject] = useState({});
+  console.log(props, "props");
 
   const deleteSelectedItem = async (postId) => {
     try {
