@@ -1,8 +1,3 @@
-# React + Vite
+# Facebook Marketplace Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Users can post items they would like to sell, buy other peoples items, or inquire about an item.  Users can create an account and login using username password.  Users can message other used about items.   Users can edit and make there posts inactive.  Users can visit the site and look at items with out authentication, nut need authentication to post and message about an item.
