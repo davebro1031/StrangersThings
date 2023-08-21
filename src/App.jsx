@@ -32,16 +32,11 @@ function App() {
           <Route path="userposts" element={<UserPosts query={query}/>} />
           <Route path="*" element={<h2>Route not found</h2>} />
           <Route path="makeposts" element={<MakePost/>}/>
-          <Route path="Messages" element={<Navbar/>}/>
-          <Route path="My posts" element={<Navbar/>}/>
-          <Route path="All Listings" element={<Navbar/>}/>
+          
           {/* <Route path="posts" element={<Posts />} /> */}
         </Routes>
       
       </div>
-      <div>
-      <Navbar />
-    </div>
     </>
   );
 }
