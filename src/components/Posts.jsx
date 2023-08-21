@@ -108,7 +108,7 @@ export default function Posts({ query }) {
                     </td>
                     <td onClick={() => showDetails(post)}>{post.title}</td>
                     <td onClick={() => showDetails(post)}>
-                      {post.active ? "Availible" : "Not Availible"}
+                      {post.active ? "Available" : "Not Availible"}
                     </td>
                     <td>
                       {localStorage.getItem("user") !== null &&
