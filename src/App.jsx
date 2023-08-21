@@ -31,7 +31,7 @@ function App() {
           <Route path="newuser" element={<NewUser/>} />
           <Route path="login" element={<LoginPage/>} />
           <Route path="messages" element={<Messages query={query}/>} />
-          <Route path="userposts" element={<UserPosts query={query}/>} />
+        
           <Route path="makeposts" element={<MakePost/>}/>
           {/* I added an "s" to users for the link below */}
           <Route path="usersposts" element={<Selling />} />
