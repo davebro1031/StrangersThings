@@ -19,27 +19,36 @@ function App() {
 
   return (
     <>
-      <Header />
-
-      <div id="content">
-        {sidebarPathnames.includes(location.pathname) ? (
-          <Sidebar query={query} setQuery={setQuery} />
-        ) : null}
-        <Routes>
-          <Route path="" element={<Posts query={query} />} />
-          <Route path="newuser" element={<NewUser />} />
-          <Route path="login" element={<LoginPage />} />
-          <Route path="messages" element={<Messages query={query} />} />
-          {/* <Route path="userposts" element={<UserPosts />} /> */}
-          <Route path="makeposts" element={<MakePost />} />
-          {/* I added an "s" to users for the link below */}
-          <Route path="userposts" element={<Selling />} />
-          <Route path="postcreator" element={<NewSelling />} />
-          <Route path="Messages" element={<Navbar />} />
-          <Route path="My posts" element={<Navbar />} />
-          <Route path="All Listings" element={<Navbar />} />
-          <Route path="*" element={<h2>Route not found</h2>} />
-        </Routes>
+      <div className="contianer">
+        <div className="header">
+          <Header />
+        </div>
+        <div className="content-container">
+          <aside>
+            {sidebarPathnames.includes(location.pathname) ? (
+              <Sidebar query={query} setQuery={setQuery} />
+            ) : null}
+          </aside>
+          <main>
+            <Routes>
+              <Route path="" element={<Posts query={query} />} />
+              <Route path="newuser" element={<NewUser />} />
+              <Route path="login" element={<LoginPage />} />
+              <Route path="messages" element={<Messages query={query} />} />
+              {/* <Route path="userposts" element={<UserPosts query={query} />} /> */}
+              <Route path="userposts" element={<Selling />} />
+              <Route path="postcreator" element={<NewSelling />} />
+              <Route path="makeposts" element={<MakePost />} />
+              <Route path="Messages" element={<Navbar />} />
+              <Route path="My posts" element={<Navbar />} />
+              <Route path="All Listings" element={<Navbar />} />
+              <Route path="*" element={<h2>Route not found</h2>} />
+            </Routes>
+          </main>
+        </div>
+        <div className="footer">
+          <footer>footer</footer>
+        </div>
       </div>
       <div>
         <Navbar />
