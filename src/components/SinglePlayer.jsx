@@ -47,7 +47,7 @@ export default async function SinglePlayer(){
 
 
 
-                                {/* <td><Link className="details-button" to="post-details">Details</Link></td> */}
+                                <td><Link className="details-button" to="post-details">Details</Link></td>
                                 </tr>
                                 </>
 

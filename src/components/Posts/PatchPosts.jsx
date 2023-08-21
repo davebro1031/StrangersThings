@@ -3,13 +3,16 @@ const full_url = `https://strangers-things.herokuapp.com/api/${Base_URL}/posts`
 
 
 export default async function PatchPost(){
+   
 
     try {
+        let token=localStorage.getItem("token")
+        let user=localStorage.getItem('user')
         const response = await fetch(  `${full_url}/64daf010755e4500144695ec`, {
             method: 'PATCH',
             headers:{
                 'Content-Type': 'application/json',
-                'Authorization':    `Bearer ${TOKEN}`
+                'Authorization':    `Bearer ${token, user}`
             },
             body: JSON.stringify({
                     post: {
@@ -22,9 +25,11 @@ export default async function PatchPost(){
             })
         })
         const result =await response.json();
-        console.logk(result)
+        console.log(result)
         return result
     }catch (err){
         console.error(err)
     }
+
+    
 }
