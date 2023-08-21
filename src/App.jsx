@@ -7,6 +7,8 @@ import Messages from "./components/Messaging/Messages";
 import Posts from "./components/Posts";
 import Sidebar from "./components/Access/Sidebar";
 import UserPosts from "./components/UserPosts/UserPosts";
+import Selling from "./components/Selling/Selling";
+import NewSelling from "./components/Selling/NewSelling";
 
       <div id="content">
         {sidebarPathnames.includes(location.pathname)?<Sidebar query={query} setQuery={setQuery}/>:null}
@@ -15,7 +17,8 @@ import UserPosts from "./components/UserPosts/UserPosts";
           <Route path="newuser" element={<NewUser/>} />
           <Route path="login" element={<LoginPage/>} />
           <Route path="messages" element={<Messages query={query}/>} />
-          <Route path="userposts" element={<UserPosts query={query}/>} />
+          <Route path="userposts" element={<Selling />} />
+          <Route path="postcreator" element={<NewSelling />} />
           <Route path="makeposts" element={<MakePost/>}/>
           <Route path="Messages" element={<Navbar/>}/>
           <Route path="My posts" element={<Navbar/>}/>
