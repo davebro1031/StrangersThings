@@ -19,6 +19,7 @@ export default function Sidebar({ query, setQuery }) {
             </li>
           ) : null}
 
+
           {localStorage.getItem("user") ? (
             <>
               {!(location.pathname === "/messages") ? (
@@ -31,6 +32,11 @@ export default function Sidebar({ query, setQuery }) {
                   <Link to="userposts">My Posts</Link>
                 </li>
               ) : null}
+              {!(location.pathname=== "/makeposts")? (
+                <li>
+                  <Link to="makeposts">Create Post</Link>
+                </li>
+              ): null}
             </>
           ) : null}
         </ul>

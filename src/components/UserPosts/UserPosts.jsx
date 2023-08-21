@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import SelectedUserPostPopup from './SelectedUserPostPopup';
+import PatchPost from '../Posts/PatchPosts';
+import DeletePost from '../Posts/DeletePost';
 
 const BASE_URL = import.meta.env.VITE_STRANGERS_THINGS_BASE_API
 
@@ -111,6 +113,8 @@ function UserPosts({query}) {
                 updated={selUpdated}
                 location={selLocation}
             />
+            <button onClick={PatchPost}>Edit</button>
+            <button onClick={DeletePost}>Delete Post</button>
         </div>
     )
 }

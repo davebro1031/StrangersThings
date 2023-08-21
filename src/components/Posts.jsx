@@ -27,7 +27,7 @@ export default function Posts({ query }) {
       try {
         const response = await fetch(full_url);
         const result = await response.json();
-        console.log(result.data.post);
+        console.log(result);
         setPosts(result.data.posts);
         return result;
       } catch (err) {
