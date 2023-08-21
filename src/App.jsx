@@ -8,16 +8,9 @@ import Posts from "./components/Posts";
 import Sidebar from "./components/Access/Sidebar";
 import UserPosts from "./components/UserPosts/UserPosts";
 import MakePost from "./components/Posts/MakePost";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from "./Navigation/Navbar.js";
+import Navbar from "./components/Navigation/Navbar";
 
-function App() {
-  return (
-    <div>
-      <Navbar />
-    </div>
-  );
-}
+
 
 function App() {
 
@@ -28,7 +21,7 @@ function App() {
   return (
     <>
       <Header />
-      <navLink> </navLink>
+     
       <div id="content">
         {sidebarPathnames.includes(location.pathname)?<Sidebar query={query} setQuery={setQuery}/>:null}
         <Routes>
@@ -39,11 +32,17 @@ function App() {
           <Route path="userposts" element={<UserPosts query={query}/>} />
           <Route path="*" element={<h2>Route not found</h2>} />
           <Route path="makeposts" element={<MakePost/>}/>
+          <Route path="Messages" element={<Messages/>}/>
+          <Route path="My posts" element={<My-Posts/>}/>
+          <Route path="All Listings" element={<All_Listings/>}/>
           {/* <Route path="posts" element={<Posts />} /> */}
         </Routes>
+      
       </div>
+      <div>
+      <Navbar />
+    </div>
     </>
   );
 }
-
 export default App;
