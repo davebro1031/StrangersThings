@@ -17,17 +17,15 @@ export default function Sidebar({ query, setQuery }) {
             <Link to="">All Listings</Link>
           </li>
 
-
-
           {localStorage.getItem("user") ? (
             <>
-                <li>
-                  <Link to="messages">My Messages</Link>
-                </li>
-              
-                <li>
-                  <Link to="userposts">My Posts</Link>
-                </li>
+              <li>
+                <Link to="messages">My Messages</Link>
+              </li>
+
+              <li>
+                <Link to="userposts">My Posts</Link>
+              </li>
 
               {/* {!(location.pathname === "/makeposts") ? (
                 <li>

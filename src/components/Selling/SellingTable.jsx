@@ -1,17 +1,15 @@
 /** The delete */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./SellingTable.css";
 // import { MyData } from "../../data/TestData";
 import SellingTableItem from "./SellingTableItem";
 import Dialog from "../Dialog/Dialog";
 import SellingForm from "./SellingForm";
 
-const SellingTable = (props) => {
-  const [itemsSelling, setItemsSelling] = useState(props);
+const SellingTable = ({ sortedPosts }) => {
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [editorOpen, setEditorOpen] = useState(false);
   const [postObject, setPostObject] = useState({});
-  console.log(props, "props");
 
   const deleteSelectedItem = async (postId) => {
     try {
@@ -89,11 +87,12 @@ const SellingTable = (props) => {
     editHandler(postObject);
     setEditorOpen(false);
   };
+
   return (
     <>
       <div className="cards">
-        {props.posts &&
-          props.posts.map((sellingItem) => {
+        {sortedPosts &&
+          sortedPosts.map((sellingItem) => {
             return (
               <SellingTableItem
                 key={sellingItem._id}
