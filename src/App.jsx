@@ -9,7 +9,8 @@ import Sidebar from "./components/Access/Sidebar";
 import UserPosts from "./components/UserPosts/UserPosts";
 import Selling from "./components/Selling/Selling";
 import NewSelling from "./components/Selling/NewSelling";
-return (<>
+const App () => {
+      return(
       <div id="content">
         {sidebarPathnames.includes(location.pathname)?<Sidebar query={query} setQuery={setQuery}/>:null}
         <Routes>
@@ -32,5 +33,5 @@ return (<>
     </div>
     </>
   );
-
+}
 export default App;
