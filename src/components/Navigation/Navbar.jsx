@@ -13,17 +13,18 @@ export default function Navbar(){
       <div className="navigation">
         <ul>
           <li>
-          <Link to ="/">Home</Link>
+          <Link to ="/">Home</Link>  &nbsp; &nbsp;  &nbsp; 
           </li>
           <li>
-          <Link to ="userposts">My listings</Link>
+          <Link to ="userposts">My listings</Link> &nbsp; &nbsp; &nbsp; 
           </li>
           <li>
-            <Link to ="messages">My messages</Link>
+            <Link to ="messages">My messages</Link> &nbsp; &nbsp; &nbsp; 
           </li>
         </ul>
         <div className="hamburger" onClick={toggleHamburger}>
           <Hamburger isOpen={hamburgerOpen}/>
+         
         </div>
       </div>
       
