@@ -13,22 +13,30 @@ export default function Sidebar({ query, setQuery }) {
             <Search query={query} setQuery={setQuery} />
           </li>
 
-          {!(location.pathname === "/") ? (
-            <li>
-              <Link to="">All Listings</Link>
-            </li>
-          ) : null}
+          <li>
+            <Link to="">All Listings</Link>
+          </li>
+
+
 
           {localStorage.getItem("user") ? (
             <>
-              {!(location.pathname === "/messages") ? (
                 <li>
                   <Link to="messages">My Messages</Link>
                 </li>
-              ) : null}
-              {!(location.pathname === "/userposts") ? (
+              
                 <li>
                   <Link to="userposts">My Posts</Link>
+                </li>
+
+              {/* {!(location.pathname === "/makeposts") ? (
+                <li>
+                  <Link to="makeposts">Create New Post</Link>
+                </li>
+              ) : null} */}
+              {!(location.pathname === "/postcreator") ? (
+                <li>
+                  <Link to="postcreator">Create New Post</Link>
                 </li>
               ) : null}
             </>

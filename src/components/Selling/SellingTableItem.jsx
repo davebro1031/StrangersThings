@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import useRandomPicture from "../../hooks/useRandomPicture";
 
 const SellingTableItem = (props) => {
+  const data = useRandomPicture();
   return (
     <div className="card">
       <div className="card-header">
@@ -17,7 +19,7 @@ const SellingTableItem = (props) => {
       <div className="card-main">
         <div className="card-image">
           {/* <img src={props.imageUrl}></img> */}
-          <img src="https://picsum.photos/id/3/5000/3333"></img>
+          <img src={`${data.data}`}></img>
         </div>
         <div className="card-content">
           <div className="card-description">

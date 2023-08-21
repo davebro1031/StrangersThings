@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import SelectedUserPostPopup from './SelectedUserPostPopup';
+import PatchPost from '../Posts/PatchPosts';
+import DeletePost from '../Posts/DeletePost';
 
 const BASE_URL = import.meta.env.VITE_STRANGERS_THINGS_BASE_API
 
@@ -15,6 +17,10 @@ function UserPosts({query}) {
                 post.title.toLowerCase().includes(query.toLowerCase())
             )
         )
+    };
+
+    const filterUserPosts = (user, items) => {
+        return items.filter((post) => post.author.username===user)
     };
 
     const [userPosts, setUserPosts] = useState([]);
@@ -38,7 +44,7 @@ function UserPosts({query}) {
     
     async function getPosts() {
         try {
-            const response = await fetch(`${BASE_URL}/users/me`,
+            const response = await fetch(`${BASE_URL}/posts`,
                 {
                     headers: {
                         "Content-Type": "application/json",
@@ -47,8 +53,7 @@ function UserPosts({query}) {
                 }
             );
             const result = await response.json();
-            setUserPosts(result.data.posts)
-        } catch (err) {
+            setUserPosts(filterUserPosts(localStorage.getItem("user"),result.data.posts.reverse()))        } catch (err) {
             console.error(err);
         }
     };
@@ -111,6 +116,8 @@ function UserPosts({query}) {
                 updated={selUpdated}
                 location={selLocation}
             />
+            <button onClick={PatchPost}>Edit</button>
+            <button onClick={DeletePost}>Delete Post</button>
         </div>
     )
 }

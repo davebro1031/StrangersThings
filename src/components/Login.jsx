@@ -4,7 +4,7 @@ import {Link} from "react-router-dom"
 const BASE_URL = `${import.meta.env.VITE_STRANGERS_THINGS_BASE_API}`
 
 
-export default function Login(){
+export default function Login({setToken}){
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -29,7 +29,7 @@ export default function Login(){
 
             localStorage.setItem("token", result.data.token)
             localStorage.setItem("user", username)
-
+            setToken(result.data.token)
             return result
           } catch (err) {
             console.error(err);
