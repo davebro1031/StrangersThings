@@ -13,7 +13,7 @@
 }
 
 header {
-  /* position: fixed; */
+  position: sticky;
   width: 100%;
   top: 0;
   right: 0;
@@ -119,8 +119,9 @@ a {
 }
 
 #sidebar {
-  /* z-index: 1;
-  position: fixed; */
+  /* z-index: 1;*/
+  position: sticky;
+  top: 50px;
   width: var(--sidebar-width);
   height: calc(100vh - var(--header-height));
   background-color: white;
