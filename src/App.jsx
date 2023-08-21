@@ -9,6 +9,8 @@ import Sidebar from "./components/Access/Sidebar";
 import UserPosts from "./components/UserPosts/UserPosts";
 import MakePost from "./components/Posts/MakePost";
 import Navbar from "./components/Navigation/Navbar";
+import Selling from "./components/Selling/Selling";
+import NewSelling from "./components/Selling/NewSelling";
 
 
 
@@ -30,12 +32,14 @@ function App() {
           <Route path="login" element={<LoginPage/>} />
           <Route path="messages" element={<Messages query={query}/>} />
           <Route path="userposts" element={<UserPosts query={query}/>} />
-          <Route path="*" element={<h2>Route not found</h2>} />
           <Route path="makeposts" element={<MakePost/>}/>
+          {/* I added an "s" to users for the link below */}
+          <Route path="usersposts" element={<Selling />} />
+          <Route path="postcreator" element={<NewSelling />} />
           <Route path="Messages" element={<Navbar/>}/>
           <Route path="My posts" element={<Navbar/>}/>
           <Route path="All Listings" element={<Navbar/>}/>
-          {/* <Route path="posts" element={<Posts />} /> */}
+          <Route path="*" element={<h2>Route not found</h2>} />
         </Routes>
       
       </div>
