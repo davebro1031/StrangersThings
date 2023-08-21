@@ -18,7 +18,6 @@ const SellingTableItem = (props) => {
       </div>
       <div className="card-main">
         <div className="card-image">
-          {/* <img src={props.imageUrl}></img> */}
           <img src={`${data.data}`}></img>
         </div>
         <div className="card-content">
@@ -89,7 +88,6 @@ const SellingTableItem = (props) => {
 SellingTableItem.propTypes = {
   _id: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
-  imageUrl: PropTypes.string.isRequired,
   active: PropTypes.bool.isRequired,
   author: PropTypes.string.isRequired,
   createdAt: PropTypes.string.isRequired,
