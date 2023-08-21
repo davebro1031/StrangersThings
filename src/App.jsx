@@ -9,7 +9,7 @@ import Sidebar from "./components/Access/Sidebar";
 import UserPosts from "./components/UserPosts/UserPosts";
 import Selling from "./components/Selling/Selling";
 import NewSelling from "./components/Selling/NewSelling";
-
+return (<>
       <div id="content">
         {sidebarPathnames.includes(location.pathname)?<Sidebar query={query} setQuery={setQuery}/>:null}
         <Routes>
@@ -32,5 +32,5 @@ import NewSelling from "./components/Selling/NewSelling";
     </div>
     </>
   );
-}
+
 export default App;
