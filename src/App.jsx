@@ -13,7 +13,7 @@ import Selling from "./components/Selling/Selling";
 import NewSelling from "./components/Selling/NewSelling";
 
 function App() {
-  const sidebarPathnames = ["/", "/messages", "/userposts"];
+  const sidebarPathnames = ["/", "/messages", "/userposts", "/postcreator"];
   const [query, setQuery] = useState("");
   const location = useLocation();
 
